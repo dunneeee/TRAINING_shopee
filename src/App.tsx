@@ -1,7 +1,11 @@
+import { HeaderSearch } from './components/Layouts';
+
 function App() {
   return (
     <>
-      <div className="wrapper"></div>
+      <div className="wrapper">
+        <HeaderSearch />
+      </div>
     </>
   );
 }
