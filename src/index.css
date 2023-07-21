@@ -47,10 +47,10 @@
   }
 
   h5 {
-    @apply text-[16px] leading[27px];
+    @apply text-[16px] leading-[27px];
   }
 
-  
+
 }
 
 @layer components {
