@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Allerta+Stencil&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-dmSans text-sm font-normal;
+  }
+
+  h1, h4 {
+    @apply font-medium;
+  }
+
+  h2, h3, h5 {
+    @apply font-normal;
+  }
+
+  p {
+    @apply font-normal text-sm;
+  }
+
+  button, input {
+    @apply font-normal font-dmSans outline-none;
+  }
+
+  h1 {
+    @apply text-[33px];
+  }
+
+  h2 {
+    @apply text-[26px] leading-[35px];
+  }
+
+  h3 {
+    @apply text-[20px] leading-[26px];
+  }
+
+  h4 {
+    @apply text-[20px] leading-[20px];
+  }
+
+  h5 {
+    @apply text-[16px] leading[27px];
+  }
+
+  
+}
+
+@layer components {
+    .font-body-large {
+      @apply font-bold text-base;
+    }
+
+    .font-body-medium {
+      @apply font-normal text-sm;
+    }
+
+    .font-body-small {
+      @apply font-normal text-xs leading-5;
+    }
+}
