@@ -1,10 +1,10 @@
-import { HeaderSearch } from './components/Layouts';
+import { Footer } from './components/Layouts';
 
 function App() {
   return (
     <>
       <div className="wrapper">
-        <HeaderSearch />
+        <Footer />
       </div>
     </>
   );
