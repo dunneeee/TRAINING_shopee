@@ -76,3 +76,9 @@
     @apply text-xs font-normal leading-5;
   }
 }
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}

@@ -1,5 +1,14 @@
+import { ProductConstants } from '@/constants';
+import { CategoryList } from './components';
+import { useCategory } from './hook';
+
 const Home = () => {
-  return <p>This is home page</p>;
+  const categories = useCategory(ProductConstants.SORT_LIST);
+  return (
+    <section>
+      <CategoryList categories={categories} />
+    </section>
+  );
 };
 
 export default Home;
