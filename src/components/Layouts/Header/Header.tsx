@@ -3,29 +3,46 @@ import { Icons } from '@/constants';
 import CartDot from './CartDot';
 import { Search } from '@/components/Form';
 import clsx from 'clsx';
+import { WithNavbarProps, withNavbar } from '@/hoc';
 
-export interface Props {
-  onMenuClick?: () => void;
+export interface HeaderProps extends WithNavbarProps {
   onCartClick?: () => void;
   className?: string;
 }
 
-export const Header = ({ onMenuClick, onCartClick, className }: Props) => {
+export const Header = ({
+  toggleNavbar,
+  onCartClick,
+  className,
+  closeNavbar,
+}: HeaderProps) => {
+  const handleCartClick = () => {
+    onCartClick && onCartClick();
+    closeNavbar && closeNavbar();
+  };
+
+  const handleLogoClick = () => {
+    closeNavbar && closeNavbar();
+  };
+
   return (
     <header className={clsx('flex items-center', className)}>
-      <Logo />
-      <div className="relative ml-auto cursor-pointer" onClick={onCartClick}>
+      <Logo onClick={handleLogoClick} />
+      <div
+        className="relative ml-auto cursor-pointer"
+        onClick={handleCartClick}
+      >
         <Icons.ShoppingCart />
         <CartDot count={1} className="absolute" />
       </div>
-      <div className="ml-4 cursor-pointer" onClick={onMenuClick}>
+      <div className="ml-4 cursor-pointer" onClick={toggleNavbar}>
         <Icons.Menu />
       </div>
     </header>
   );
 };
 
-type HeaderSearchProps = Props;
+type HeaderSearchProps = HeaderProps;
 
 export const HeaderSearch = ({ ...props }: HeaderSearchProps) => {
   return (
@@ -37,3 +54,5 @@ export const HeaderSearch = ({ ...props }: HeaderSearchProps) => {
     </>
   );
 };
+
+export const HeaderWithNavbar = withNavbar<HeaderProps>(Header);

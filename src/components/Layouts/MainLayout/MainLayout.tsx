@@ -1,14 +1,16 @@
-import { Footer, Header } from '..';
+import { useNavbar } from '@/hook';
+import { Footer, HeaderWithNavbar, Navbar } from '..';
 
 interface MainLayoutProps {
   children: React.ReactNode;
 }
 
 const MainLayout = ({ children }: MainLayoutProps) => {
+  const { isNavbarOpen } = useNavbar();
   return (
     <>
-      <Header className="wrapper" />
-      {children}
+      <HeaderWithNavbar className="wrapper" />
+      {isNavbarOpen ? <Navbar className="wrapper" /> : children}
       <Footer className="wrapper mt-10" />
     </>
   );
