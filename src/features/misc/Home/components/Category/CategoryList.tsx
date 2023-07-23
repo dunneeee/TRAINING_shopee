@@ -30,7 +30,7 @@ export const CategoryList = ({ categories, className }: CategoryListProps) => {
       >
         {categories.map((category, index) => {
           return (
-            <CategoryItem className="mx-1" key={index} to={category.to}>
+            <CategoryItem className="mr-2" key={index} to={category.to}>
               {category.title}
             </CategoryItem>
           );

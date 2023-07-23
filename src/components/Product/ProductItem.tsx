@@ -6,7 +6,6 @@ import { ProductTypes } from '@/types';
 
 export type ProductData = ProductTypes.ShortType & {
   badge?: BadgeType;
-  link?: string;
 };
 
 interface ProductItemProps {
@@ -15,23 +14,25 @@ interface ProductItemProps {
 }
 
 export const ProductItem = ({ product, className }: ProductItemProps) => {
-  const { name, price, badge, discount, category, id, image, link } = product;
+  const { name, price, badge, discount, category, id, image } = product;
 
-  const currentLink = link || '/products/' + id;
+  const currentLink = '/products/' + id;
 
   const productClasses = clsx('overflow-hidden flex flex-col', className);
   return (
     <div className={productClasses}>
       <Link to={currentLink} className="relative mx-auto inline-block">
         {image && <img className="mx-auto rounded-lg" src={image} alt={name} />}
-        <ProductBadge className="absolute left-0 top-0 m-2" type={badge}>
-          {badge === 'category' && category}
-          {badge === 'soldOut' && 'Sold'}
-          {badge === 'new' && 'New'}
-          {badge === 'discount' &&
-            discount &&
-            `- %${moneyUtils.getDiscountPercentage(price, discount)}`}
-        </ProductBadge>
+        {badge && (
+          <ProductBadge className="absolute left-0 top-0 m-2" type={badge}>
+            {badge === 'category' && category}
+            {badge === 'soldOut' && 'Sold'}
+            {badge === 'new' && 'New'}
+            {badge === 'discount' &&
+              discount &&
+              `- %${moneyUtils.getDiscountPercentage(price, discount)}`}
+          </ProductBadge>
+        )}
       </Link>
       <Link to={currentLink}>
         <p className="mt-2">{name}</p>

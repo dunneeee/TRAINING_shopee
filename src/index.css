@@ -75,6 +75,18 @@
   .font-body-small {
     @apply text-xs font-normal leading-5;
   }
+
+  ::-webkit-scrollbar {
+    @apply w-0.5;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary;
+  }
 }
 
 @layer utilities {
