@@ -19,11 +19,12 @@ export interface Type {
   discount?: number;
   additionalInfo?: string;
   reviews?: Review[];
+  badge?: string;
 }
 
 export type ShortType = Pick<
   Type,
-  'id' | 'category' | 'name' | 'price' | 'discount'
+  'id' | 'category' | 'name' | 'price' | 'discount' | 'badge'
 > & {
   image: string;
 };
