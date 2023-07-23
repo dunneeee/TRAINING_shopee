@@ -14,20 +14,24 @@
     @apply font-dmSans text-sm font-normal;
   }
 
-  h1, h4 {
+  h1,
+  h4 {
     @apply font-medium;
   }
 
-  h2, h3, h5 {
+  h2,
+  h3,
+  h5 {
     @apply font-normal;
   }
 
   p {
-    @apply font-normal text-sm;
+    @apply text-sm font-normal;
   }
 
-  button, input {
-    @apply font-normal font-dmSans outline-none;
+  button,
+  input {
+    @apply font-dmSans font-normal outline-none;
   }
 
   h1 {
@@ -49,20 +53,22 @@
   h5 {
     @apply text-[16px] leading-[27px];
   }
-
-
 }
 
 @layer components {
-    .font-body-large {
-      @apply font-bold text-base;
-    }
+  .wrapper {
+    @apply mx-auto max-w-[1134px] px-4;
+  }
 
-    .font-body-medium {
-      @apply font-normal text-sm;
-    }
+  .font-body-large {
+    @apply text-base font-bold;
+  }
 
-    .font-body-small {
-      @apply font-normal text-xs leading-5;
-    }
+  .font-body-medium {
+    @apply text-sm font-normal;
+  }
+
+  .font-body-small {
+    @apply text-xs font-normal leading-5;
+  }
 }
