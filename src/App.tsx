@@ -1,12 +1,11 @@
-import { Footer } from './components/Layouts';
+import { AppProvider } from './providers';
+import { AppRoutes } from './routes';
 
 function App() {
   return (
-    <>
-      <div className="wrapper">
-        <Footer />
-      </div>
-    </>
+    <AppProvider>
+      <AppRoutes />
+    </AppProvider>
   );
 }
 
