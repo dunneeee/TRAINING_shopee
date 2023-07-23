@@ -1,9 +1,14 @@
 import { Link } from '@/components/Elements';
 import { Icons } from '@/constants';
+import clsx from 'clsx';
 
-export const Footer = () => {
+interface Props {
+  className?: string;
+}
+
+export const Footer = ({ className }: Props) => {
   return (
-    <footer className="">
+    <footer className={clsx('', className)}>
       <div className="footer-top mb-10">
         <div className="input font-body-medium flex items-center border-b border-black">
           <input

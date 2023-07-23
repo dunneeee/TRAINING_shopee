@@ -1,7 +1,7 @@
 import { Home } from '@/features/misc';
-import { RouteObject } from 'react-router-dom';
+import { MyRouteObject } from './generateLayout';
 
-export const commonRoutes: RouteObject[] = [
+export const commonRoutes: MyRouteObject[] = [
   {
     path: '/',
     element: <Home />,

@@ -2,15 +2,17 @@ import { Logo } from '@/components/Elements';
 import { Icons } from '@/constants';
 import CartDot from './CartDot';
 import { Search } from '@/components/Form';
+import clsx from 'clsx';
 
 export interface Props {
   onMenuClick?: () => void;
   onCartClick?: () => void;
+  className?: string;
 }
 
-export const Header = ({ onMenuClick, onCartClick }: Props) => {
+export const Header = ({ onMenuClick, onCartClick, className }: Props) => {
   return (
-    <header className="flex items-center">
+    <header className={clsx('flex items-center', className)}>
       <Logo />
       <div className="relative ml-auto cursor-pointer" onClick={onCartClick}>
         <Icons.ShoppingCart />

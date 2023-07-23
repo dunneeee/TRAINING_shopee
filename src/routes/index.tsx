@@ -1,7 +1,10 @@
 import { useRoutes } from 'react-router-dom';
 import { commonRoutes } from './common';
+import generateLayout from './generateLayout';
 
 export const AppRoutes = () => {
-  const element = useRoutes([...commonRoutes]);
+  const routes = [...generateLayout(commonRoutes)];
+
+  const element = useRoutes(routes);
   return <>{element}</>;
 };
