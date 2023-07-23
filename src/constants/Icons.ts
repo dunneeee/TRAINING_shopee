@@ -6,3 +6,6 @@ export { ReactComponent as ArrowRight } from '@assets/Icons/arrow-right.svg';
 export { ReactComponent as Facebook } from '@assets/Icons/facebook.svg';
 export { ReactComponent as Twitter } from '@assets/Icons/twitter.svg';
 export { ReactComponent as Instagram } from '@assets/Icons/instagram.svg';
+export { ReactComponent as Close } from '@assets/Icons/close.svg';
+export { ReactComponent as User } from '@assets/Icons/user.svg';
+export { ReactComponent as Logout } from '@assets/Icons/logout.svg';

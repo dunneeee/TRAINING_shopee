@@ -1,5 +1,6 @@
 import { useNavbar } from '@/hook';
 import { Footer, HeaderWithNavbar, Navbar } from '..';
+import { Search } from '@/components/Form';
 
 interface MainLayoutProps {
   children: React.ReactNode;
@@ -10,8 +11,11 @@ const MainLayout = ({ children }: MainLayoutProps) => {
   return (
     <>
       <HeaderWithNavbar className="wrapper" />
+      <div className="wrapper mb-10">
+        <Search className="w-full" />
+      </div>
       {isNavbarOpen ? <Navbar className="wrapper" /> : children}
-      <Footer className="wrapper mt-10" />
+      {!isNavbarOpen && <Footer className="wrapper mt-10" />}
     </>
   );
 };

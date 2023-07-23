@@ -15,6 +15,7 @@ export const Header = ({
   onCartClick,
   className,
   closeNavbar,
+  isNavbarOpen,
 }: HeaderProps) => {
   const handleCartClick = () => {
     onCartClick && onCartClick();
@@ -36,7 +37,11 @@ export const Header = ({
         <CartDot count={1} className="absolute" />
       </div>
       <div className="ml-4 cursor-pointer" onClick={toggleNavbar}>
-        <Icons.Menu />
+        {isNavbarOpen ? (
+          <Icons.Close className="w-4" />
+        ) : (
+          <Icons.Menu className="w-4" />
+        )}
       </div>
     </header>
   );
