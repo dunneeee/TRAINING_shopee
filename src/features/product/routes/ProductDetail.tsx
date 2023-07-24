@@ -4,7 +4,7 @@ import { useProductDetail } from '../hook';
 import { NotFound } from '@/features/misc';
 import { moneyUtils } from '@/utils';
 import { Icons } from '@/constants';
-import { Button } from '@/components/Elements';
+import { Button, Link } from '@/components/Elements';
 import { Disclosures, Overview } from '../components';
 import { useScrollTop } from '@/hook';
 import { ProductDraggableList } from '@/components/Product';
@@ -43,10 +43,17 @@ export const ProductDetail = () => {
         <div className="line my-4 w-full bg-lightGray"></div>
         <Disclosures product={product} />
         <div className="line my-4 w-full bg-lightGray"></div>
-        <div className="">
+        <div className="mb-4">
           <h5 className="mb-2">Similar Items</h5>
           <ProductDraggableList products={relatedProducts} />
         </div>
+        <Link
+          className="font-body-small flex text-primary"
+          variants="secondary"
+        >
+          Continue shopping
+          <Icons.AngleArrowRight className="ml-auto" />
+        </Link>
       </section>
     </MainLayout>
   );
