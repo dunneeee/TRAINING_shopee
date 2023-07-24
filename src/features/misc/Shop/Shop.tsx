@@ -1,7 +1,14 @@
+import { ProductData, ProductGrid } from '@/components/Product';
+import { FilterButton } from './components';
+import { useProduct } from '@/hook';
+
 const Shop = () => {
+  const { productState } = useProduct();
   return (
     <section className="wrapper">
-      <p>This is shop page</p>
+      <h3 className="mb-4">Shop</h3>
+      <FilterButton className="mb-4" />
+      <ProductGrid products={productState.sortProducts as ProductData[]} />
     </section>
   );
 };

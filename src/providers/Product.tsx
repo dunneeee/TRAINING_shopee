@@ -7,10 +7,13 @@ interface ProductProps {
 }
 
 export const ProductProvider = ({ children }: ProductProps) => {
-  const [state, dispatch] = useReducer(productReducer, initialProductState);
+  const [productState, dispatch] = useReducer(
+    productReducer,
+    initialProductState
+  );
 
   const contextValue = {
-    state,
+    productState,
     dispatch,
   };
 
