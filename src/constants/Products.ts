@@ -7,7 +7,11 @@ export const PRODUCTS: ProductTypes.Type[] = [
     category: 'earrings',
     name: 'Lira Earrings',
     price: 20,
-    images: [Images.LIRA_EARRINGS],
+    images: [
+      Images.LIRA_EARRINGS,
+      Images.KAEDE_HAIR_PIN,
+      Images.OLLIE_EARRINGS,
+    ],
     overview:
       'Lorem ipsum dolor sit amet, consectetur adipisce elit. Aliquam placerat mi at nisl interdum, ut eleifend nisl ultricies. Nulla facilisi. Donec euismod, nisl eget aliquam ultricies, nisl nisl ultricies, ut eleifend nisl ultricies. Nulla facilisi. Donec euismod, nisl eget aliquam ultricies, nisl nisl ultricies.',
   },

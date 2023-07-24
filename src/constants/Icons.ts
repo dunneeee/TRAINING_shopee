@@ -10,3 +10,5 @@ export { ReactComponent as Close } from '@assets/Icons/close.svg';
 export { ReactComponent as User } from '@assets/Icons/user.svg';
 export { ReactComponent as Logout } from '@assets/Icons/logout.svg';
 export { ReactComponent as Filter } from '@assets/Icons/filter.svg';
+export { ReactComponent as AngleArrowRight } from '@assets/Icons/angle-arrow-right.svg';
+export { ReactComponent as Share } from '@assets/Icons/share.svg';
