@@ -8,8 +8,8 @@ interface ProductGridProps {
 
 export const ProductGrid = ({ products, className }: ProductGridProps) => {
   return (
-    <div className="overflow-hidden">
-      <ul className={clsx('-m-2 flex flex-wrap', className)}>
+    <div className={clsx('overflow-hidden', className)}>
+      <ul className="-m-2 flex flex-wrap">
         {products.map((product) => {
           return (
             <li className="w-1/2 p-2" key={product.name + product.id}>

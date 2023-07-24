@@ -5,7 +5,7 @@ export type MyRouteObject = RouteObject & {
   layout?: React.ComponentType<{ children: React.ReactNode }> | null;
 };
 
-export default function generateLayout(routes: MyRouteObject[]): RouteObject[] {
+const generateLayout = (routes: MyRouteObject[]): RouteObject[] => {
   return routes.map((route) => {
     const { layout: Layout, ...rest } = route;
     return {
@@ -19,4 +19,6 @@ export default function generateLayout(routes: MyRouteObject[]): RouteObject[] {
       ),
     };
   });
-}
+};
+
+export default generateLayout;
