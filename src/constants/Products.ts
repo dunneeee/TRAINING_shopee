@@ -1,47 +1,59 @@
 import { ProductTypes } from '@/types';
 import { Images } from '.';
 
-export const SORT_LIST: ProductTypes.ShortType[] = [
+export const PRODUCTS: ProductTypes.Type[] = [
   {
-    category: 'earrings',
     id: '1',
-    image: Images.LIRA_EARRINGS,
+    category: 'earrings',
     name: 'Lira Earrings',
     price: 20,
+    images: [Images.LIRA_EARRINGS],
+    overview:
+      'Lorem ipsum dolor sit amet, consectetur adipisce elit. Aliquam placerat mi at nisl interdum, ut eleifend nisl ultricies. Nulla facilisi. Donec euismod, nisl eget aliquam ultricies, nisl nisl ultricies, ut eleifend nisl ultricies. Nulla facilisi. Donec euismod, nisl eget aliquam ultricies, nisl nisl ultricies.',
   },
   {
-    category: 'earrings',
     id: '2',
-    image: Images.OLLIE_EARRINGS,
+    category: 'earrings',
     name: 'Ollie Earrings',
     price: 30,
+    images: [Images.OLLIE_EARRINGS],
+    overview:
+      'Lorem ipsum dolor sit amet, consectetur adipisce elit. Aliquam placerat mi at nisl interdum, ut eleifend nisl ultricies. Nulla facilisi. Donec euismod, nisl eget aliquam ultricies, nisl nisl ultricies, ut eleifend nisl ultricies. Nulla facilisi. Donec euismod, nisl eget aliquam ultricies, nisl nisl ultricies.',
   },
   {
-    category: 'necklace',
     id: '3',
-    image: Images.PLAINE_NECKLACE,
+    category: 'necklace',
     name: 'Plaine Necklace',
     price: 30,
+    images: [Images.PLAINE_NECKLACE],
+    overview:
+      'Lorem ipsum dolor sit amet, consectetur adipisce elit. Aliquam placerat mi at nisl interdum, ut eleifend nisl ultricies. Nulla facilisi. Donec euismod, nisl eget aliquam ultricies, nisl nisl ultricies, ut eleifend nisl ultricies. Nulla facilisi. Donec euismod, nisl eget aliquam ultricies, nisl nisl ultricies.',
   },
   {
-    category: 'hair-pin',
     id: '4',
-    image: Images.YUKI_HAIR_PIN,
+    category: 'hair-pin',
     name: 'Yuki Hair Pin',
     price: 29,
+    images: [Images.YUKI_HAIR_PIN],
+    overview:
+      'Lorem ipsum dolor sit amet, consectetur adipisce elit. Aliquam placerat mi at nisl interdum, ut eleifend nisl ultricies. Nulla facilisi. Donec euismod, nisl eget aliquam ultricies, nisl nisl ultricies, ut eleifend nisl ultricies. Nulla facilisi. Donec euismod, nisl eget aliquam ultricies, nisl nisl ultricies.',
   },
   {
-    category: 'hair-pin',
     id: '5',
-    image: Images.KAEDE_HAIR_PIN,
+    category: 'hair-pin',
     name: 'Kaede Hair Pin',
     price: 30,
+    images: [Images.KAEDE_HAIR_PIN],
+    overview:
+      'Lorem ipsum dolor sit amet, consectetur adipisce elit. Aliquam placerat mi at nisl interdum, ut eleifend nisl ultricies. Nulla facilisi. Donec euismod, nisl eget aliquam ultricies, nisl nisl ultricies, ut eleifend nisl ultricies. Nulla facilisi. Donec euismod, nisl eget aliquam ultricies, nisl nisl ultricies.',
   },
   {
-    category: 'hair-pin',
     id: '6',
-    image: Images.HAIR_PIN_SET_OF_3,
+    category: 'hair-pin',
     name: 'Hair Pin Set of 3',
     price: 20,
+    images: [Images.HAIR_PIN_SET_OF_3],
+    overview:
+      'Lorem ipsum dolor sit amet, consectetur adipisce elit. Aliquam placerat mi at nisl interdum, ut eleifend nisl ultricies. Nulla facilisi. Donec euismod, nisl eget aliquam ultricies, nisl nisl ultricies, ut eleifend nisl ultricies. Nulla facilisi. Donec euismod, nisl eget aliquam ultricies, nisl nisl ultricies.',
   },
 ];
