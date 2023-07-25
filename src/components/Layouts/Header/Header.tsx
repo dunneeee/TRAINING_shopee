@@ -3,7 +3,7 @@ import { Icons } from '@/constants';
 import CartDot from './CartDot';
 import { Search } from '@/components/Form';
 import clsx from 'clsx';
-import { WithNavbarProps, withNavbar } from '@/hoc';
+import { WithNavbarProps, withNavbar } from '@/hocs';
 
 export interface HeaderProps extends WithNavbarProps {
   onCartClick?: () => void;
