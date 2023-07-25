@@ -1,16 +1,10 @@
 import { Icons } from '@/constants';
 import clsx from 'clsx';
-import { CartItem } from '../components';
-import { useCart } from '@/hook';
 import { moneyUtils } from '@/utils';
 import { Button } from '@/components/Elements';
-import { CartTypes } from '@/types';
-import {
-  decrementCartItem,
-  incrementCartItem,
-  removeItemFromCart,
-} from '@/redux/actions';
 import { Link } from 'react-router-dom';
+import { CartItemGrid } from '../components';
+import { useShoppingItem } from '../hooks';
 
 interface ShoppingBagProps {
   className?: string;
@@ -18,19 +12,7 @@ interface ShoppingBagProps {
 }
 
 export const ShoppingBag = ({ className, onBack }: ShoppingBagProps) => {
-  const { cartState, cartDispatch } = useCart();
-
-  const onIncrementItem = (item: CartTypes.Item) => {
-    cartDispatch(incrementCartItem(item.id));
-  };
-
-  const onDecrementItem = (item: CartTypes.Item) => {
-    cartDispatch(decrementCartItem(item.id));
-  };
-
-  const onRemoveItem = (item: CartTypes.Item) => {
-    cartDispatch(removeItemFromCart(item.id));
-  };
+  const { cartState, cartDispatch, shoppingItems } = useShoppingItem();
 
   return (
     <section className={clsx(className)}>
@@ -52,18 +34,7 @@ export const ShoppingBag = ({ className, onBack }: ShoppingBagProps) => {
         )}
 
         <div className="wrapper flex-1 overflow-auto">
-          <ul className="">
-            {cartState.items.map((item) => (
-              <li key={item.id} className="mb-6">
-                <CartItem
-                  cartItem={item}
-                  onDecrement={onDecrementItem}
-                  onIncrement={onIncrementItem}
-                  onRemove={onRemoveItem}
-                />
-              </li>
-            ))}
-          </ul>
+          <CartItemGrid cartItems={shoppingItems} cartDispatch={cartDispatch} />
         </div>
 
         <div className="border-t border-lightGray bg-white py-9">
@@ -74,7 +45,7 @@ export const ShoppingBag = ({ className, onBack }: ShoppingBagProps) => {
                 {moneyUtils.formatUSD(cartState.totalPrice)}
               </span>
             </p>
-            <Link to={'/cart'}>
+            <Link to={'/shopping-cart'}>
               <Button variant="outline" className="w-full" uppercase>
                 View Cart
               </Button>

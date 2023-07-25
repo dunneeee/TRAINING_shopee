@@ -1,4 +1,4 @@
-import { useDraggableList } from '@/hook';
+import { useDraggableList } from '@/hooks';
 import { ProductTypes } from '@/types';
 import { ProductData, ProductItem } from '.';
 

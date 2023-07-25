@@ -1,5 +1,6 @@
 import { ShoppingBag } from '@/features/cart';
-import { useCart, useToggle } from '@/hook';
+import { useCart, useToggle } from '@/hooks';
+import clsx from 'clsx';
 import { useEffect } from 'react';
 
 export interface WithShoppingBagProps {
@@ -27,12 +28,15 @@ export const withShoppingBag = <T extends WithShoppingBagProps>(
           totalItems={cartState.totalItems}
           toggleShoppingBag={handleToggle}
         />
-        {isOpen && (
-          <ShoppingBag
-            onBack={handleToggle}
-            className="fixed left-0 top-0 z-[99] h-full w-full bg-white"
-          />
-        )}
+        <ShoppingBag
+          onBack={handleToggle}
+          className={clsx(
+            'fixed left-0 top-0 z-[99] h-full w-full translate-x-full bg-white transition',
+            {
+              '!translate-x-0': isOpen,
+            }
+          )}
+        />
       </>
     );
   };

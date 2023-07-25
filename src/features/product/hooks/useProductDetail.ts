@@ -1,13 +1,12 @@
-import { useProduct } from '@/hook';
+import { useProduct } from '@/hooks';
+import { useMemo } from 'react';
 
 export const useProductDetail = (productId: string = '') => {
   const { getProducts, getSortProducts } = useProduct();
-  if (!productId)
-    return {
-      product: null,
-      relatedProducts: [],
-    };
-  const product = getProducts((product) => product.id === productId)[0] || null;
+  const product = useMemo(
+    () => getProducts((product) => product.id === productId)[0] || null,
+    [productId, getProducts]
+  );
   return {
     product,
     relatedProducts: getSortProducts((product) => product.id !== productId),
