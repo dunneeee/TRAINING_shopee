@@ -1,7 +1,7 @@
 import { CategoryList } from './components';
 import { useCategory } from './hook';
 import { ProductData, ProductGrid } from '@/components/Product';
-import { useProduct } from '@/hook';
+import { useProduct } from '@/hooks';
 
 const Home = () => {
   const { productState } = useProduct();

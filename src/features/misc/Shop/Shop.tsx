@@ -1,6 +1,6 @@
 import { ProductData, ProductGrid } from '@/components/Product';
 import { FilterButton } from './components';
-import { useProduct } from '@/hook';
+import { useProduct } from '@/hooks';
 
 const Shop = () => {
   const { productState } = useProduct();
