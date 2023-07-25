@@ -4,18 +4,49 @@ import { useProductDetail } from '../hooks';
 import { NotFound } from '@/features/misc';
 import { moneyUtils } from '@/utils';
 import { Icons } from '@/constants';
-import { Button, Link } from '@/components/Elements';
+import { Button, Link, Toast } from '@/components/Elements';
 import { Disclosures, Overview } from '../components';
-import { useScrollTop } from '@/hooks';
+import { useCart, useScrollTop, useToast } from '@/hooks';
 import { ProductDraggableList } from '@/components/Product';
+import { addItemToCart } from '@/redux/actions';
 
 export const ProductDetail = () => {
   useScrollTop();
   const { productId } = useParams();
   const { product, relatedProducts } = useProductDetail(productId);
+  const { cartDispatch } = useCart();
+  const { hideToast, showToast, toast } = useToast();
   if (!product) return <NotFound label="Product not found." />;
+
+  const handleAddToCart = () => {
+    const { id, name, price, images } = product;
+    cartDispatch(
+      addItemToCart({
+        id,
+        name,
+        price,
+        image: images[0],
+        quantity: 1,
+      })
+    );
+    showToast('success', 'Added to cart.', {
+      to: '/shopping-cart',
+      label: 'View Cart',
+    });
+  };
+
   return (
     <MainLayout>
+      {toast && (
+        <Toast
+          remove={hideToast}
+          type={toast.type}
+          className="fixed bottom-0 z-[99]"
+          link={toast.link}
+        >
+          {toast.message}
+        </Toast>
+      )}
       <section className="wrapper">
         <div className="">
           <div className="max-w-[374px]">
@@ -34,7 +65,12 @@ export const ProductDetail = () => {
             </h5>
             <Icons.Share className="ml-auto cursor-pointer" />
           </div>
-          <Button uppercase variant="outline" className="mt-6 w-full">
+          <Button
+            uppercase
+            variant="outline"
+            className="mt-6 w-full"
+            onClick={handleAddToCart}
+          >
             Add To Cart
           </Button>
           <Overview content={product.overview} className="mt-4" />

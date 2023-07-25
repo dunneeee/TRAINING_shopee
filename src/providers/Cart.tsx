@@ -15,7 +15,7 @@ export const CartProvider = ({ children }: CartProviderProps) => {
   useEffect(() => {
     const demoItems: CartTypes.Item[] = ProductConstants.PRODUCTS.slice(
       0,
-      5
+      3
     ).map((p) => ({
       id: p.id,
       name: p.name,

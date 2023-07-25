@@ -40,6 +40,8 @@ export const cartReducer = (
       return {
         ...state,
         items: newItems,
+        totalItems: state.totalItems + 1,
+        totalPrice: state.totalPrice + item.price,
       };
     }
     case CartActionType.REMOVE_ITEM: {
