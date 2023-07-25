@@ -29,7 +29,7 @@ export const ProductDetail = () => {
         quantity: 1,
       })
     );
-    showToast('success', 'Added to cart.', {
+    showToast('success', 'The item added your shopping bag.', {
       to: '/shopping-cart',
       label: 'View Cart',
     });
