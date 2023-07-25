@@ -1,4 +1,4 @@
-import { useNavbar } from '@/hook';
+import { useNavbar } from '@/hooks';
 import { Footer, HeaderWithNavbar, Navbar } from '..';
 import { Search } from '@/components/Form';
 

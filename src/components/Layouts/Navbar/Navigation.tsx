@@ -1,4 +1,4 @@
-import { useNavbar } from '@/hook';
+import { useNavbar } from '@/hooks';
 import { NavigationItem } from './NavigationItem';
 
 const navigationItems = [
