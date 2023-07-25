@@ -1,8 +1,13 @@
+import { AppProvider, AppState } from './providers';
+import { AppRoutes } from './routes';
+
 function App() {
   return (
-    <>
-      <div className="wrapper"></div>
-    </>
+    <AppState>
+      <AppProvider>
+        <AppRoutes />
+      </AppProvider>
+    </AppState>
   );
 }
 

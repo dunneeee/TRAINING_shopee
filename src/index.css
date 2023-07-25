@@ -57,7 +57,11 @@
 
 @layer components {
   .wrapper {
-    @apply mx-auto max-w-[1134px] px-4;
+    @apply mx-auto max-w-7xl px-4 xl:px-0;
+  }
+
+  .line {
+    @apply h-px bg-black;
   }
 
   .font-body-large {
@@ -70,5 +74,22 @@
 
   .font-body-small {
     @apply text-xs font-normal leading-5;
+  }
+  ::-webkit-scrollbar {
+    @apply w-0.5;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
   }
 }
