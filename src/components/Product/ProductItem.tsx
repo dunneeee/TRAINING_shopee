@@ -21,8 +21,14 @@ export const ProductItem = ({ product, className }: ProductItemProps) => {
   const productClasses = clsx('overflow-hidden flex flex-col', className);
   return (
     <div className={productClasses}>
-      <Link to={currentLink} className="relative mx-auto inline-block">
-        {image && <img className="mx-auto rounded-lg" src={image} alt={name} />}
+      <Link to={currentLink} className="relative block w-full">
+        {image && (
+          <img
+            className="w-full rounded-lg object-contain"
+            src={image}
+            alt={name}
+          />
+        )}
         {badge && (
           <ProductBadge className="absolute left-0 top-0 m-2" type={badge}>
             {badge === 'category' && category}

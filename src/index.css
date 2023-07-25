@@ -75,7 +75,6 @@
   .font-body-small {
     @apply text-xs font-normal leading-5;
   }
-
   ::-webkit-scrollbar {
     @apply w-0.5;
   }

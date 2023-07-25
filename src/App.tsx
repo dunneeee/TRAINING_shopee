@@ -1,11 +1,13 @@
-import { AppProvider } from './providers';
+import { AppProvider, AppState } from './providers';
 import { AppRoutes } from './routes';
 
 function App() {
   return (
-    <AppProvider>
-      <AppRoutes />
-    </AppProvider>
+    <AppState>
+      <AppProvider>
+        <AppRoutes />
+      </AppProvider>
+    </AppState>
   );
 }
 

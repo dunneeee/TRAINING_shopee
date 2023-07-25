@@ -1,16 +1,17 @@
-import { ProductConstants } from '@/constants';
 import { CategoryList } from './components';
 import { useCategory } from './hook';
 import { ProductData, ProductGrid } from '@/components/Product';
+import { useProduct } from '@/hook';
 
 const Home = () => {
-  const categories = useCategory(ProductConstants.SORT_LIST);
+  const { productState } = useProduct();
+  const categories = useCategory(productState.sortProducts);
   return (
     <section>
       <CategoryList categories={categories} />
       <ProductGrid
         className="wrapper mt-4"
-        products={ProductConstants.SORT_LIST as ProductData[]}
+        products={productState.sortProducts as ProductData[]}
       />
     </section>
   );
