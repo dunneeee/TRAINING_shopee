@@ -3,22 +3,27 @@ import { Icons } from '@/constants';
 import CartDot from './CartDot';
 import { Search } from '@/components/Form';
 import clsx from 'clsx';
-import { WithNavbarProps, withNavbar } from '@/hoc';
+import {
+  WithNavbarProps,
+  WithShoppingBagProps,
+  withNavbar,
+  withShoppingBag,
+} from '@/hoc';
 
-export interface HeaderProps extends WithNavbarProps {
-  onCartClick?: () => void;
+export interface HeaderProps extends WithNavbarProps, WithShoppingBagProps {
   className?: string;
 }
 
 export const Header = ({
   toggleNavbar,
-  onCartClick,
   className,
   closeNavbar,
   isNavbarOpen,
+  toggleShoppingBag,
+  totalItems = 0,
 }: HeaderProps) => {
   const handleCartClick = () => {
-    onCartClick && onCartClick();
+    toggleShoppingBag && toggleShoppingBag();
     closeNavbar && closeNavbar();
   };
 
@@ -34,7 +39,7 @@ export const Header = ({
         onClick={handleCartClick}
       >
         <Icons.ShoppingCart />
-        <CartDot count={1} className="absolute" />
+        {totalItems > 0 && <CartDot count={totalItems} className="absolute" />}
       </div>
       <div className="ml-4 cursor-pointer" onClick={toggleNavbar}>
         {isNavbarOpen ? (
@@ -60,4 +65,6 @@ export const HeaderSearch = ({ ...props }: HeaderSearchProps) => {
   );
 };
 
-export const HeaderWithNavbar = withNavbar<HeaderProps>(Header);
+export const HeaderWithNavbar = withShoppingBag<HeaderProps>(
+  withNavbar<HeaderProps>(Header)
+);

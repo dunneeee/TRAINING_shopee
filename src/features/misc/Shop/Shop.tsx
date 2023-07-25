@@ -1,8 +1,9 @@
 import { ProductData, ProductGrid } from '@/components/Product';
 import { FilterButton } from './components';
-import { useProduct } from '@/hook';
+import { useProduct, useScrollTop } from '@/hook';
 
 const Shop = () => {
+  useScrollTop();
   const { productState } = useProduct();
   return (
     <section className="wrapper">

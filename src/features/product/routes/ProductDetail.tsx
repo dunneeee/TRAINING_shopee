@@ -50,6 +50,7 @@ export const ProductDetail = () => {
         <Link
           className="font-body-small flex text-primary"
           variants="secondary"
+          to="/shop"
         >
           Continue shopping
           <Icons.AngleArrowRight className="ml-auto" />
