@@ -45,7 +45,7 @@ export const ShoppingBag = ({ className, onBack }: ShoppingBagProps) => {
                 {moneyUtils.formatUSD(cartState.totalPrice)}
               </span>
             </p>
-            <Link to={'/shopping-cart'}>
+            <Link to={'/shopping-cart'} onClick={onBack}>
               <Button variant="outline" className="w-full" uppercase>
                 View Cart
               </Button>

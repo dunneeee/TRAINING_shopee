@@ -28,7 +28,7 @@ export const CartItemTotal = ({
   subtotal = 0,
 }: CartItemTotalProps) => {
   return (
-    <div className={clsx('bg-lightGray p-4', className)}>
+    <div className={clsx('rounded bg-lightGray p-4', className)}>
       <h5 className="mb-6">Cart totals</h5>
       <ul className="">
         <Item label="SUBTOTAL" className="mb-6">
