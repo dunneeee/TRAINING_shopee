@@ -28,7 +28,7 @@ export const ShoppingBag = ({ className, onBack }: ShoppingBagProps) => {
         </div>
 
         {cartState.items.length > 0 && (
-          <p className="font-body-small wrapper mx-0 text-darkGray">
+          <p className="font-body-small wrapper w-full text-darkGray">
             {cartState.items.length} items
           </p>
         )}
