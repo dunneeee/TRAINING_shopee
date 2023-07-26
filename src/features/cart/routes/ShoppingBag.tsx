@@ -33,7 +33,7 @@ export const ShoppingBag = ({ className, onBack }: ShoppingBagProps) => {
           </p>
         )}
 
-        <div className="wrapper flex-1 overflow-auto">
+        <div className="wrapper w-full flex-1 overflow-auto">
           <CartItemGrid cartItems={shoppingItems} cartDispatch={cartDispatch} />
         </div>
 

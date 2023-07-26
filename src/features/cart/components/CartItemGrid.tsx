@@ -7,6 +7,7 @@ import {
   removeItemFromCart,
 } from '@/redux/actions';
 import clsx from 'clsx';
+import { Message } from '@/components/Elements';
 
 interface CartItemGridProps {
   className?: string;
@@ -31,7 +32,7 @@ export const CartItemGrid = ({
     cartDispatch && cartDispatch(removeItemFromCart(item.id));
   };
   return (
-    <ul className={clsx(className)}>
+    <ul className={clsx('w-full', className)}>
       {cartItems.map((item) => (
         <li key={item.id} className="mb-6">
           <CartItem
@@ -43,7 +44,13 @@ export const CartItemGrid = ({
         </li>
       ))}
       {cartItems.length === 0 && (
-        <li className="text-center">No items in cart</li>
+        <Message
+          message="No items in cart"
+          link={{
+            to: '/shop',
+            text: 'CONTINUE SHOPPING',
+          }}
+        />
       )}
     </ul>
   );
