@@ -14,6 +14,8 @@ export const PRODUCTS: ProductTypes.Type[] = [
     ],
     overview:
       'Lorem ipsum dolor sit amet, consectetur adipisce elit. Aliquam placerat mi at nisl interdum, ut eleifend nisl ultricies. Nulla facilisi. Donec euismod, nisl eget aliquam ultricies, nisl nisl ultricies, ut eleifend nisl ultricies. Nulla facilisi. Donec euismod, nisl eget aliquam ultricies, nisl nisl ultricies.',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipisce elit. Aliquam placerat mi at nisl interdum, ut eleifend nisl ultricies.',
   },
   {
     id: '2',
