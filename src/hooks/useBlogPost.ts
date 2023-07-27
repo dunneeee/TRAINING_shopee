@@ -1,5 +1,5 @@
 import { BlogPostConstants } from '@/constants';
-import { BlogPostTypes } from '@/types';
+import { BlogPostTypes } from '@/features/blog';
 
 const useBlogPost = () => {
   const getBlogPosts = () => BlogPostConstants.BLOGS;

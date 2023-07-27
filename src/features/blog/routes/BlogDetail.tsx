@@ -1,8 +1,8 @@
 import { useBlogPost, useScrollTop } from '@/hooks';
-import { BlogPostTypes } from '@/types';
 import { dateUtils } from '@/utils';
 import clsx from 'clsx';
 import { Navigate, useParams } from 'react-router-dom';
+import { BlogPostTypes } from '..';
 
 interface BlogContentProps {
   content: BlogPostTypes.Content;
