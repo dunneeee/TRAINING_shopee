@@ -1,8 +1,8 @@
-import { BlogPostTypes } from '@/types';
 import clsx from 'clsx';
 import { BlogItem } from '.';
 import { Pagination } from '@/components/Elements';
 import { usePage } from '@/hooks';
+import { BlogPostTypes } from '..';
 
 interface BlogGridProps {
   className?: string;
@@ -22,7 +22,7 @@ export const BlogGrid = ({ blogs, className, pageSize = 3 }: BlogGridProps) => {
   });
 
   const onPageChange = (page: number) => {
-    document.documentElement.scrollTop = 0;
+    window.scrollTo(0, 0);
     setPage(page);
   };
 

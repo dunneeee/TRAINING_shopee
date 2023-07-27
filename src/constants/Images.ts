@@ -9,3 +9,5 @@ export { default as PRODUCT_WITH_CARE } from '@assets/Images/product-with-care.p
 export { default as BLOG_TOP_TREND } from '@assets/Images/blog-top-trend.png';
 export { default as BLOG_TOP_TREND_2 } from '@assets/Images/blog-top-trend-2.png';
 export { default as BLOG_TOP_TREND_3 } from '@assets/Images/blog-top-trend-3.png';
+export { default as USER_AVATAR_1 } from '@assets/Images/user-1.png';
+export { default as USER_AVATAR_2 } from '@assets/Images/user-2.png';

@@ -1,4 +1,4 @@
-import { CommentForm } from '@/features/comments';
+import { CommentForm, CommentItem } from '@/features/comments';
 import { useBlogPost, useScrollTop } from '@/hooks';
 import { dateUtils } from '@/utils';
 import clsx from 'clsx';
@@ -9,6 +9,37 @@ interface BlogContentProps {
   content: BlogPostTypes.Content;
   className?: string;
 }
+
+const COMMENTS = [
+  {
+    content:
+      'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy.',
+    createdAt: new Date().toDateString(),
+    id: '1',
+    postId: '1',
+    replies: [
+      {
+        content:
+          'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy.',
+        createdAt: new Date().toDateString(),
+        id: '2',
+        postId: '1',
+        replies: [],
+        userId: '2',
+      },
+    ],
+    userId: '1',
+  },
+  {
+    content:
+      'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy.',
+    createdAt: new Date().toDateString(),
+    id: '2',
+    postId: '1',
+    replies: [],
+    userId: '1',
+  },
+];
 
 const BlogContent = ({ className, content }: BlogContentProps) => {
   let element = null;
@@ -77,6 +108,16 @@ export const BlogDetail = () => {
         </p>
       </div>
       <CommentForm />
+      <ul>
+        {COMMENTS.map((comment, index) => (
+          <li key={comment.id}>
+            <CommentItem comment={comment} />
+            {index !== COMMENTS.length - 1 && (
+              <div className="line my-6 bg-gray"></div>
+            )}
+          </li>
+        ))}
+      </ul>
     </section>
   );
 };
