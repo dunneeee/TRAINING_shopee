@@ -1,4 +1,4 @@
-import { BlogPostTypes } from '@/types';
+import { BlogPostTypes } from '@/features/blog';
 import { Images } from '.';
 
 export const BLOGS: BlogPostTypes.Type[] = [
