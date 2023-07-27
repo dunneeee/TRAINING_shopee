@@ -2,8 +2,10 @@ import { Button } from '@/components/Elements';
 import { CartItemGrid, CartItemTotal } from '../components';
 import { useShoppingItem } from '../hooks';
 import { InputField } from '@/components/Form';
+import { useScrollTop } from '@/hooks';
 
 export const ShoppingCart = () => {
+  useScrollTop();
   const { shoppingItems, cartDispatch, cartState } = useShoppingItem();
   return (
     <section className="wrapper">

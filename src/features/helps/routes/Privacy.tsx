@@ -1,4 +1,7 @@
+import { useScrollTop } from '@/hooks';
+
 export const Privacy = () => {
+  useScrollTop();
   return (
     <section className="wrapper">
       <h3 className="mb-10">Privacy Policy</h3>

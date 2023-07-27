@@ -1,5 +1,6 @@
 import { Button } from '@/components/Elements';
 import { Icons } from '@/constants';
+import { useScrollTop } from '@/hooks';
 import clsx from 'clsx';
 import { Link } from 'react-router-dom';
 
@@ -50,6 +51,7 @@ const HelpItem = ({ title, to, leftIcon, className }: HelpItemProps) => {
 };
 
 export const Help = () => {
+  useScrollTop();
   return (
     <section className="">
       <div className="wrapper mb-9">
