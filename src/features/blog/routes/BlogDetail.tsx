@@ -1,3 +1,4 @@
+import { CommentForm } from '@/features/comments';
 import { useBlogPost, useScrollTop } from '@/hooks';
 import { BlogPostTypes } from '@/types';
 import { dateUtils } from '@/utils';
@@ -68,7 +69,14 @@ export const BlogDetail = () => {
           <BlogContent key={index} content={content} className="mb-4" />
         ))}
       </div>
-      <div className="line bg-gray"></div>
+      <div className="line mb-9 bg-gray"></div>
+      <div className="mb-14">
+        <h5 className="mb-3">Leave a reply</h5>
+        <p className="font-body-small text-darkGray">
+          Your email address will not be published. Required fields are marked *
+        </p>
+      </div>
+      <CommentForm />
     </section>
   );
 };
