@@ -4,3 +4,5 @@ export { default as LIRA_EARRINGS } from '@assets/Images/lira-earrings.png';
 export { default as OLLIE_EARRINGS } from '@assets/Images/ollie-earrings.png';
 export { default as PLAINE_NECKLACE } from '@assets/Images/plaine-necklace.png';
 export { default as YUKI_HAIR_PIN } from '@assets/Images/yuki-hair-pin.png';
+export { default as ABOUT_TOP_TREND } from '@assets/Images/about_top_trend.png';
+export { default as PRODUCT_WITH_CARE } from '@assets/Images/product-with-care.png';

@@ -1,4 +1,4 @@
-import { Contact, Home, NotFound, Shop } from '@/features/misc';
+import { About, Contact, Home, NotFound, Shop } from '@/features/misc';
 import { MyRouteObject } from './generateLayout';
 import { ProductRoutes } from '@/features/product';
 import { CartRoutes } from '@/features/cart';
@@ -31,6 +31,10 @@ export const commonRoutes: MyRouteObject[] = [
   {
     path: '/contact',
     element: <Contact />,
+  },
+  {
+    path: '/about',
+    element: <About />,
   },
   {
     path: '*',
