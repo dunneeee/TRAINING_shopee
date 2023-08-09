@@ -1,3 +1,4 @@
+import { CartProvider } from './Cart';
 import { ProductProvider } from './Product';
 
 interface AppStateProps {
@@ -5,5 +6,9 @@ interface AppStateProps {
 }
 
 export const AppState = ({ children }: AppStateProps) => {
-  return <ProductProvider>{children}</ProductProvider>;
+  return (
+    <ProductProvider>
+      <CartProvider>{children}</CartProvider>
+    </ProductProvider>
+  );
 };
