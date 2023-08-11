@@ -1,12 +1,12 @@
 import { MainLayout } from '@/components/Layouts';
 import { useParams } from 'react-router-dom';
-import { useProductDetail } from '../hook';
+import { useProductDetail } from '../hooks';
 import { NotFound } from '@/features/misc';
 import { moneyUtils } from '@/utils';
 import { Icons } from '@/constants';
 import { Button, Link } from '@/components/Elements';
 import { Disclosures, Overview } from '../components';
-import { useScrollTop } from '@/hook';
+import { useScrollTop } from '@/hooks';
 import { ProductDraggableList } from '@/components/Product';
 
 export const ProductDetail = () => {

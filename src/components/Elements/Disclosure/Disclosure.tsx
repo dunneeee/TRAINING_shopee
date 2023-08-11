@@ -6,12 +6,16 @@ interface DisclosureProps {
   children?: React.ReactNode;
   open?: boolean;
   title?: string;
+  className?: string;
+  titleClasses?: string;
 }
 
 export const Disclosure = ({
   children,
   open = false,
   title = '',
+  className,
+  titleClasses,
 }: DisclosureProps) => {
   const [isOpen, setIsOpen] = useState(open);
 
@@ -20,12 +24,12 @@ export const Disclosure = ({
   };
 
   return (
-    <div className="">
+    <div className={className}>
       <div
         className="flex cursor-pointer items-center py-2"
         onClick={toggleOpen}
       >
-        <p className="font-body-small">{title}</p>
+        <p className={clsx('font-body-small', titleClasses)}>{title}</p>
         <span className="ml-auto">
           <Icons.AngleArrowRight
             className={clsx({

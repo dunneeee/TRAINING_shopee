@@ -1,5 +1,5 @@
-import { useNavbar } from '@/hook';
 import { NavigationItem } from './NavigationItem';
+import clsx from 'clsx';
 
 const navigationItems = [
   {
@@ -32,10 +32,14 @@ const navigationItems = [
   },
 ];
 
-export const Navigation = () => {
-  const { closeNavbar } = useNavbar();
+interface NavigationProps {
+  closeNavbar?: () => void;
+  className?: string;
+}
+
+export const Navigation = ({ className, closeNavbar }: NavigationProps) => {
   return (
-    <ul>
+    <ul className={clsx(className)}>
       {navigationItems.map((item) => (
         <NavigationItem key={item.to} to={item.to} onClick={closeNavbar}>
           {item.label}

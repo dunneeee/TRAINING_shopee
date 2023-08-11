@@ -8,7 +8,7 @@ import {
   WithShoppingBagProps,
   withNavbar,
   withShoppingBag,
-} from '@/hoc';
+} from '@/hocs';
 
 export interface HeaderProps extends WithNavbarProps, WithShoppingBagProps {
   className?: string;

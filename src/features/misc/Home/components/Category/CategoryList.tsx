@@ -1,4 +1,4 @@
-import { useDraggableList } from '@/hook';
+import { useDraggableList } from '@/hooks';
 import { CategoryItem } from '.';
 import clsx from 'clsx';
 
