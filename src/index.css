@@ -57,7 +57,7 @@
 
 @layer components {
   .wrapper {
-    @apply mx-auto max-w-7xl px-4 xl:px-0;
+    @apply mx-auto max-w-xs px-4 xl:px-0;
   }
 
   .line {

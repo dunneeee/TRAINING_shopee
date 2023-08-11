@@ -37,7 +37,7 @@ export const InputField = forwardRef<HTMLInputElement, InputFieldProps>(
       <FieldWrapper label={label} error={error}>
         <div className={clsx('relative inline-block', className)}>
           <input
-            className="w-full border-b border-b-gray bg-transparent py-2 pb-2 pr-5"
+            className="w-full border-b border-b-gray bg-transparent py-2 pr-5"
             ref={handlerRef}
             onChange={handleOnChange}
             value={value}

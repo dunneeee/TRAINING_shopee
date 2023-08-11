@@ -1,9 +1,10 @@
 import { CategoryList } from './components';
 import { useCategory } from './hook';
 import { ProductData, ProductGrid } from '@/components/Product';
-import { useProduct } from '@/hooks';
+import { useProduct, useScrollTop } from '@/hooks';
 
 const Home = () => {
+  useScrollTop();
   const { productState } = useProduct();
   const categories = useCategory(productState.sortProducts);
   return (
