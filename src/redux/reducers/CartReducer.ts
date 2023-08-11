@@ -93,7 +93,7 @@ export const cartReducer = (
     case CartActionType.DECREMENT_ITEM: {
       const item = state.items.find((i) => i.id === action.payload);
       let newState = { ...state };
-      if (item) {
+      if (item && item.quantity > 1) {
         const price = item.price;
         const quantity = item.quantity - 1;
         const newItem = { ...item, quantity, price };
