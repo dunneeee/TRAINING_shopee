@@ -26,21 +26,19 @@ const QuantityCounter = ({
 }: QuantityCounterProps) => {
   return (
     <div className={clsx('inline-flex items-center', className)}>
-      <p
+      <button
         className="font-body-small cursor-pointer select-none p-1"
         onClick={onDecrement}
       >
-        {' '}
-        -{' '}
-      </p>
+        -
+      </button>
       <p className="mx-2 w-5 text-center">{count}</p>
-      <p
+      <button
         className="font-body-small cursor-pointer select-none p-1"
         onClick={onIncrement}
       >
-        {' '}
-        +{' '}
-      </p>
+        +
+      </button>
     </div>
   );
 };
@@ -75,7 +73,7 @@ export const CartItem = ({
           </p>
         </div>
         <div className="bottom font-body-small text-darkGray">
-          QTY:{' '}
+          QTY:
           <QuantityCounter
             count={cartItem.quantity}
             onIncrement={() => onIncrement && onIncrement(cartItem)}

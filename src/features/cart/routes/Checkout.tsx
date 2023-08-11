@@ -1,8 +1,10 @@
 import { Link } from '@/components/Elements';
 import { BillingDetailsForm, OrderBilling } from '../components';
 import { useShoppingItem } from '../hooks';
+import { useScrollTop } from '@/hooks';
 
 export const Checkout = () => {
+  useScrollTop();
   const { shoppingItems, cartState } = useShoppingItem();
 
   return (
