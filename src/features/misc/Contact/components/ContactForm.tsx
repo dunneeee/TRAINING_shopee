@@ -6,7 +6,7 @@ interface ContachtFormProps {
   className?: string;
 }
 
-export const ContachtForm = ({ className }: ContachtFormProps) => {
+export const ContactForm = ({ className }: ContachtFormProps) => {
   return (
     <form action="#" className={clsx('', className)}>
       <ul>

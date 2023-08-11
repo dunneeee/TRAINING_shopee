@@ -1,12 +1,12 @@
 import { useScrollTop } from '@/hooks';
-import { ContachtForm } from './components';
+import { ContactForm } from './components';
 
 const Contact = () => {
   useScrollTop();
   return (
     <section className="wrapper">
       <h3 className="mb-16">Contact</h3>
-      <ContachtForm />
+      <ContactForm />
     </section>
   );
 };
