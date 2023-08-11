@@ -2,6 +2,7 @@ import { Button } from '@/components/Elements';
 import { Icons } from '@/constants';
 import { useScrollTop } from '@/hooks';
 import clsx from 'clsx';
+import { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 
 interface HelpItemProps {
@@ -58,14 +59,14 @@ export const Help = () => {
         <h3 className="">Help</h3>
       </div>
       <ul className="">
-        {helpItems.map((item) => {
+        {helpItems.map((item, index) => {
           return (
-            <>
+            <Fragment key={index}>
               <HelpItem {...item} key={item.to} />
               <li className="wrapper">
                 <div className="line bg-lightGray"></div>
               </li>
-            </>
+            </Fragment>
           );
         })}
       </ul>
