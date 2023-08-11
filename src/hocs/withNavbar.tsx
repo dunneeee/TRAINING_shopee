@@ -1,4 +1,4 @@
-import { useNavbar } from '@/hook';
+import { useNavbar } from '@/hooks';
 
 export interface WithNavbarProps {
   toggleNavbar?: () => void;

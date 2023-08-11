@@ -1,7 +1,7 @@
 import { CategoryList } from './components';
 import { useCategory } from './hook';
 import { ProductData, ProductGrid } from '@/components/Product';
-import { useProduct, useScrollTop } from '@/hook';
+import { useProduct, useScrollTop } from '@/hooks';
 
 const Home = () => {
   useScrollTop();
