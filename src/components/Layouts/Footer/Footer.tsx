@@ -25,7 +25,9 @@ export const Footer = ({ className }: Props) => {
         </div>
       </div>
       <ul className="links mb-10">
-        <Link className="font-body-small mb-2 block">CONTACT</Link>
+        <Link className="font-body-small mb-2 block" to="/contact">
+          CONTACT
+        </Link>
         <Link className="font-body-small mb-2 block">TERMS OF SERVICES</Link>
         <Link className="font-body-small mb-2 block">SHIPPING AND RETURNS</Link>
       </ul>
