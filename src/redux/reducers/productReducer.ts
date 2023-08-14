@@ -12,8 +12,16 @@ export interface ProductState {
 }
 
 export const initialProductState: ProductState = {
-  products: [],
-  sortProducts: ProductConstants.SORT_LIST,
+  products: ProductConstants.PRODUCTS,
+  sortProducts: ProductConstants.PRODUCTS.map((p) => ({
+    id: p.id,
+    name: p.name,
+    price: p.price,
+    category: p.category,
+    image: p.images ? p.images[0] : '',
+    discount: p.discount,
+    badge: p.badge,
+  })),
   filter: {
     keyword: '',
     category: '',

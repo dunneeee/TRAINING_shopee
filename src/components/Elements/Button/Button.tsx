@@ -7,7 +7,7 @@ const VARIANTS = {
   inverse:
     'bg-white text-black transition hover:bg-black hover:border-white hover:text-white active:bg-black active:border-white active:text-white',
   outline:
-    'text-black border-black transition hover:bg-black hover:text-white active:bg-black active:text-white',
+    'text-black !border-black transition hover:bg-black hover:text-white active:bg-black active:text-white',
 };
 
 const SIZE = {

@@ -1,13 +1,13 @@
 import { ProductState, initialProductState } from '@/redux';
-import { ProductAction } from '@/redux/actions';
+import { ProductAction } from '@/redux';
 import { Dispatch, createContext } from 'react';
 
-export interface ProductContext {
+export interface ProductContextType {
   productState: ProductState;
   dispatch: Dispatch<ProductAction>;
 }
 
-export const ProductContext = createContext<ProductContext>({
+export const ProductContext = createContext<ProductContextType>({
   productState: initialProductState,
   dispatch: () => initialProductState,
 });

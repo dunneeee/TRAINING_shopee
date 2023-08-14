@@ -4,7 +4,7 @@ import { forwardRef } from 'react';
 
 interface Option {
   label: React.ReactNode;
-  value: string | number | string[];
+  value?: string | number | string[];
 }
 
 type InputSelectProps = FieldWrapperPassThroughProps &
@@ -19,7 +19,7 @@ export const InputSelect = forwardRef<HTMLSelectElement, InputSelectProps>(
         <select
           ref={ref}
           className={clsx(
-            'border-b border-b-gray py-2 outline-none',
+            'border-b border-b-gray bg-transparent py-2 outline-none',
             className
           )}
           {...props}

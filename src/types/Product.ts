@@ -13,8 +13,8 @@ export interface Type {
   name: string;
   price: number;
   description?: string;
-  overview?: string;
-  images?: string[];
+  overview: string;
+  images: string[];
   category: string;
   discount?: number;
   additionalInfo?: string;

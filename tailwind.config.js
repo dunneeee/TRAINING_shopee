@@ -14,6 +14,15 @@ module.exports = {
         allerta: ['Allerta Stencil', 'sans-serif'],
         dmSans: ['DM Sans', 'sans-serif'],
       },
+      keyframes: {
+        'width-full-to-0': {
+          '0%': { width: '100%' },
+          '100%': { width: '0%' },
+        },
+      },
+      animation: {
+        'width-full-to-0': 'width-full-to-0 1s ease-in-out',
+      },
     },
   },
   plugins: [],
