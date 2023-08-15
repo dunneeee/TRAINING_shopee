@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { Navigation } from './Navigation';
 import { NavigationItem } from './NavigationItem';
 import { Icons } from '@/constants';
-import { useNavbar } from '@/hooks';
+import { useAuth, useNavbar } from '@/hooks';
 
 interface NavbarProps {
   className?: string;
@@ -10,6 +10,7 @@ interface NavbarProps {
 
 export const Navbar = ({ className }: NavbarProps) => {
   const { closeNavbar } = useNavbar();
+  const { isAuthenticated } = useAuth();
   return (
     <nav className={clsx('', className)}>
       <Navigation closeNavbar={closeNavbar} />
@@ -22,9 +23,11 @@ export const Navbar = ({ className }: NavbarProps) => {
         >
           My account
         </NavigationItem>
-        <NavigationItem leftIcon={<Icons.Logout />} onClick={closeNavbar}>
-          Logout
-        </NavigationItem>
+        {isAuthenticated && (
+          <NavigationItem leftIcon={<Icons.Logout />} onClick={closeNavbar}>
+            Logout
+          </NavigationItem>
+        )}
       </ul>
     </nav>
   );
