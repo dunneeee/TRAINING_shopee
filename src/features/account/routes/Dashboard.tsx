@@ -21,21 +21,21 @@ const DashBoard = () => {
           </button>
           )
         </p>
-        <p className="font-body-small">
-          From your account dashboard you can view your
+        <div className="font-body-small">
+          <span>From your account dashboard you can view your </span>
           <Link className="text-primary" to="/account/orders">
             recent orders
           </Link>
-          , manage your
+          <span>, manage your </span>
           <Link className="text-primary" to="/account/addresses">
             shipping and billing addresses
           </Link>
-          , and edit your
+          <span>, and edit your </span>
           <Link className="text-primary" to="/account/account-details">
             password and account details
           </Link>
           .
-        </p>
+        </div>
       </div>
     </section>
   );
