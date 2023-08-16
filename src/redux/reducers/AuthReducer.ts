@@ -9,8 +9,14 @@ export interface AuthState {
 
 export const initialAuthState: AuthState = {
   users: [],
-  user: null,
-  isAuthenticated: false,
+  user: {
+    id: 1,
+    email: 'dunneee@gmail.com',
+    name: 'duneee',
+    password: '123456',
+    role: 'admin',
+  },
+  isAuthenticated: true,
 };
 
 export const authReducer = (state: AuthState, action: AuthAction) => {
