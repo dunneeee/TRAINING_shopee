@@ -9,7 +9,13 @@ export interface AuthState {
 
 export const initialAuthState: AuthState = {
   users: [],
-  user: null,
+  user: {
+    id: 1,
+    email: 'dunneee@gmail.com',
+    name: 'duneee',
+    password: '123456',
+    role: 'admin',
+  },
   isAuthenticated: true,
 };
 

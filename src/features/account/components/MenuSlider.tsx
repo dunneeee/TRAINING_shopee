@@ -50,10 +50,14 @@ const useActiveItem = (items: MenuSliderItem[]) => {
 };
 
 export const MenuSlider = ({ className, items }: MenuSliderProps) => {
-  const { totalPage } = useActiveItem(items);
+  const { totalPage, indexActive } = useActiveItem(items);
   const [sliderActive, setSliderActive] = useState(0);
   const isEndPage = sliderActive === totalPage - 1;
   const isStartPage = sliderActive === 0;
+
+  useEffect(() => {
+    setSliderActive(Math.ceil((indexActive + 1) / 3) - 1);
+  }, [indexActive]);
 
   const handleNext = () => {
     if (isEndPage) {
