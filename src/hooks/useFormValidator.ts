@@ -1,8 +1,9 @@
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, useState, useMemo } from 'react';
 
 export interface FieldValidation<T> {
   field: keyof T;
   validate: (value: T[keyof T], fields: T) => string | null;
+  defaultValue?: T[keyof T];
 }
 
 interface FormValidationResult<T> {
@@ -10,12 +11,26 @@ interface FormValidationResult<T> {
   isValid: boolean;
 }
 
+const getInitialFields = <T>(validateRules: ValidateRules<T>) => {
+  const initialFields = {} as T;
+  validateRules.forEach((rule) => {
+    if (rule.defaultValue !== undefined) {
+      initialFields[rule.field] = rule.defaultValue;
+    }
+  });
+  return initialFields;
+};
+
 export type ValidateRules<T> = FieldValidation<T>[];
 
 export const useFormValidator = <T>(validateRules: ValidateRules<T>) => {
-  const [fields, setFields] = useState({} as T);
-  const [errors, setErrors] = useState({} as Record<keyof T, string | null>);
+  const initialFields = useMemo(
+    () => getInitialFields(validateRules),
+    [validateRules]
+  );
 
+  const [fields, setFields] = useState(initialFields);
+  const [errors, setErrors] = useState({} as Record<keyof T, string | null>);
   const validateForm = () => {
     const newErrors = {} as Record<keyof T, string | null>;
     validateRules.forEach(({ field, validate }) => {
@@ -62,13 +77,26 @@ export const useFormValidator = <T>(validateRules: ValidateRules<T>) => {
     return (value: T[keyof T]) => handleChange(fieldName, value);
   };
 
-  const getFieldProps = (fieldName: keyof T) => ({
-    value: fields[fieldName] || '',
-    onChange: (e: ChangeEvent<HTMLInputElement>) =>
-      handleChange(fieldName, e.target.value as T[keyof T]),
-    onBlur: () => handleBlur(fieldName),
-    onFocus: () => handleFocus(fieldName),
-  });
+  const getFieldProps = (fieldName: keyof T) => {
+    const commonProps = {
+      onBlur: () => handleBlur(fieldName),
+      onFocus: () => handleFocus(fieldName),
+    };
+    if (typeof fields[fieldName] === 'boolean')
+      return {
+        ...commonProps,
+        checked: fields[fieldName] || false,
+        onChange: (e: ChangeEvent<HTMLInputElement>) =>
+          handleChange(fieldName, e.target.checked as T[keyof T]),
+      } as React.InputHTMLAttributes<HTMLInputElement>;
+
+    return {
+      ...commonProps,
+      value: fields[fieldName] || '',
+      onChange: (e: ChangeEvent<HTMLInputElement>) =>
+        handleChange(fieldName, e.target.value as T[keyof T]),
+    } as React.InputHTMLAttributes<HTMLInputElement>;
+  };
 
   return {
     getFormValidationResult,

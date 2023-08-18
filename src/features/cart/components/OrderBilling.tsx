@@ -140,7 +140,12 @@ export const OrderBilling = ({
           />
         </li>
         <li>
-          <Button uppercase className="w-full" onClick={onPlaceOrder}>
+          <Button
+            uppercase
+            className="w-full"
+            onClick={onPlaceOrder}
+            type="submit"
+          >
             Place Order
           </Button>
         </li>
