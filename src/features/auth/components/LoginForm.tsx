@@ -56,6 +56,7 @@ const LoginForm = ({ onSubmit, error, className }: LoginFormProps) => {
           <InputField
             className="w-full"
             placeholder="Password"
+            type="password"
             {...getFieldProps('password')}
             setValue={getSetFieldFunc('password')}
             error={validateErrors.password}

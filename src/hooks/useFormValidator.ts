@@ -15,6 +15,7 @@ export type ValidateRules<T> = FieldValidation<T>[];
 export const useFormValidator = <T>(validateRules: ValidateRules<T>) => {
   const [fields, setFields] = useState({} as T);
   const [errors, setErrors] = useState({} as Record<keyof T, string | null>);
+
   const validateForm = () => {
     const newErrors = {} as Record<keyof T, string | null>;
     validateRules.forEach(({ field, validate }) => {
@@ -22,6 +23,7 @@ export const useFormValidator = <T>(validateRules: ValidateRules<T>) => {
       newErrors[field] = error;
     });
     setErrors(newErrors);
+    return newErrors;
   };
 
   const validateField = (fieldName: keyof T) => {
@@ -49,10 +51,10 @@ export const useFormValidator = <T>(validateRules: ValidateRules<T>) => {
   };
 
   const getFormValidationResult = (): FormValidationResult<T> => {
-    validateForm();
+    const newErrors = validateForm();
     return {
       fields,
-      isValid: Object.values(errors).every((error) => !error),
+      isValid: Object.values(newErrors).every((error) => !error),
     };
   };
 
