@@ -8,15 +8,17 @@ export interface AuthState {
 }
 
 export const initialAuthState: AuthState = {
-  users: [],
-  user: {
-    id: 1,
-    email: 'dunneee@gmail.com',
-    name: 'duneee',
-    password: '123456',
-    role: 'admin',
-  },
-  isAuthenticated: true,
+  users: [
+    {
+      id: 1,
+      email: 'dunneee@gmail.com',
+      name: 'duneee',
+      password: '123456',
+      role: 'admin',
+    },
+  ],
+  user: null,
+  isAuthenticated: false,
 };
 
 export const authReducer = (state: AuthState, action: AuthAction) => {

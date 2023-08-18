@@ -8,7 +8,7 @@ export const validateEmail = (email: string): ReturnResult => {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   if (!emailRegex.test(email)) {
-    return 'Email is invalid';
+    return 'Email has wrong format!';
   }
 
   return null;
@@ -37,6 +37,35 @@ export const validateUsername = (username: string): ReturnResult => {
 
   if (username.includes(' ')) {
     return 'Username cannot contain spaces';
+  }
+
+  return null;
+};
+
+export const validateName = (name: string): ReturnResult => {
+  if (!name) {
+    return 'Name is required';
+  }
+
+  const nameRegex = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/;
+
+  if (!nameRegex.test(name)) {
+    return 'Name must be characters!';
+  }
+
+  return null;
+};
+
+export const validateConfirmPassword = (
+  password: string,
+  confirmPassword: string
+): ReturnResult => {
+  if (!confirmPassword) {
+    return 'Confirm password is required';
+  }
+
+  if (password !== confirmPassword) {
+    return 'Confirm password does not match';
   }
 
   return null;

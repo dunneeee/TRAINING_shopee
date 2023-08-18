@@ -13,4 +13,7 @@ export default defineConfig({
       '@assets': '/src/assets',
     },
   },
+  server: {
+    host: true,
+  },
 });

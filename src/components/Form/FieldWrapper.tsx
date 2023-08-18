@@ -4,7 +4,7 @@ interface FieldWrapperProps {
   label?: string;
   className?: string;
   children: React.ReactNode;
-  error?: string;
+  error?: string | null;
 }
 
 export type FieldWrapperPassThroughProps = Omit<
@@ -15,7 +15,7 @@ export type FieldWrapperPassThroughProps = Omit<
 export const FieldWrapper = ({
   children,
   className,
-  error,
+  error = null,
   label,
 }: FieldWrapperProps) => {
   return (
