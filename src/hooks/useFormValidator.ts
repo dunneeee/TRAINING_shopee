@@ -1,60 +1,79 @@
-import { useState, useEffect, useCallback } from 'react';
+import { ChangeEvent, useState } from 'react';
 
-type ValidatorRules<T> = Record<keyof T, (value: T[keyof T]) => string | null>;
-
-type Errors<T> = Record<keyof T, string | null>;
-
-interface FormValidationResult<T> {
-  isValid: boolean;
-  errors: Errors<T>;
+export interface FieldValidation<T> {
+  field: keyof T;
+  validate: (value: T[keyof T], fields: T) => string | null;
 }
 
-const useFormValidator = <T>(validatorRules: ValidatorRules<T>) => {
-  const [fields, setFields] = useState<T>({} as T);
-  const [errors, setErrors] = useState<Errors<T>>({} as Errors<T>);
+interface FormValidationResult<T> {
+  fields: T;
+  isValid: boolean;
+}
 
-  const handleChange = (field: keyof T, value: T[keyof T]) => {
-    setFields((prevFields) => ({
-      ...prevFields,
-      [field]: value,
-    }));
+export type ValidateRules<T> = FieldValidation<T>[];
+
+export const useFormValidator = <T>(validateRules: ValidateRules<T>) => {
+  const [fields, setFields] = useState({} as T);
+  const [errors, setErrors] = useState({} as Record<keyof T, string | null>);
+  const validateForm = () => {
+    const newErrors = {} as Record<keyof T, string | null>;
+    validateRules.forEach(({ field, validate }) => {
+      const error = validate(fields[field], fields);
+      newErrors[field] = error;
+    });
+    setErrors(newErrors);
   };
 
-  const validateForm = useCallback(() => {
-    const newErrors: Errors<T> = {} as Errors<T>;
-
-    for (const fieldName in fields) {
-      const hasRule = !!validatorRules[fieldName];
-      if (hasRule) {
-        const value = fields[fieldName];
-        const errorMessage = validatorRules[fieldName](value);
-        newErrors[fieldName] = errorMessage;
-      }
+  const validateField = (fieldName: keyof T) => {
+    const rule = validateRules.find((r) => r.field === fieldName);
+    if (!rule) {
+      return;
     }
+    const error = rule.validate(fields[fieldName], fields);
+    setErrors((prev) => ({ ...prev, [fieldName]: error }));
+  };
 
-    setErrors(newErrors);
-  }, [fields, validatorRules]);
+  const handleBlur = (fieldName: keyof T) => {
+    const isFieldValue = !!fields[fieldName];
+    if (isFieldValue) {
+      validateField(fieldName);
+    }
+  };
 
-  useEffect(() => {
+  const handleFocus = (fieldName: keyof T) => {
+    setErrors((prev) => ({ ...prev, [fieldName]: null }));
+  };
+
+  const handleChange = (filedName: keyof T, value: T[keyof T]) => {
+    setFields((prev) => ({ ...prev, [filedName]: value }));
+  };
+
+  const getFormValidationResult = (): FormValidationResult<T> => {
     validateForm();
-  }, [fields, validateForm]);
+    return {
+      fields,
+      isValid: Object.values(errors).every((error) => !error),
+    };
+  };
+
+  const getSetFieldFunc = (fieldName: keyof T) => {
+    return (value: T[keyof T]) => handleChange(fieldName, value);
+  };
 
   const getFieldProps = (fieldName: keyof T) => ({
     value: fields[fieldName] || '',
-    onChange: (e: React.ChangeEvent<HTMLInputElement>) =>
+    onChange: (e: ChangeEvent<HTMLInputElement>) =>
       handleChange(fieldName, e.target.value as T[keyof T]),
+    onBlur: () => handleBlur(fieldName),
+    onFocus: () => handleFocus(fieldName),
   });
 
-  const getFormValidationResult = (): FormValidationResult<T> => {
-    const isValid = Object.values(errors).every((error) => !error);
-
-    return { isValid, errors };
-  };
-
   return {
-    getFieldProps,
     getFormValidationResult,
+    getSetFieldFunc,
+    getFieldProps,
+    handleBlur,
+    handleFocus,
+    errors,
   };
 };
-
-export default useFormValidator;
