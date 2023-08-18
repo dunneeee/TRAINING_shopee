@@ -5,9 +5,12 @@ const useAuth = () => {
   const context = useContext(AuthContext);
   if (!context) throw new Error('useAuth must be used within a AuthProvider');
   return {
-    ...context.authState,
     authState: context.authState,
     authDispatch: context.authDispatch,
+    user: context.authState.login.user,
+    loginState: context.authState.login,
+    registerState: context.authState.register,
+    isAuthenticated: !!context.authState.login.user,
   };
 };
 

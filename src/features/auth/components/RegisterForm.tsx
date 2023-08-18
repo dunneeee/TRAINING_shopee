@@ -28,7 +28,8 @@ const RegisterForm = ({ onSubmit, error, className }: RegisterFormProps) => {
       onSubmit &&
       onSubmit({
         email: fields.email,
-        name: fields.firstName + ' ' + fields.lastName,
+        firstName: fields.firstName,
+        lastName: fields.lastName,
         password: fields.password,
         agree: true,
       });
@@ -76,6 +77,7 @@ const RegisterForm = ({ onSubmit, error, className }: RegisterFormProps) => {
           <InputField
             className="w-full"
             placeholder="Password"
+            type="password"
             {...getFieldProps('password')}
             error={fieldErrors.password}
             setValue={getSetFieldFunc('password')}
@@ -85,6 +87,7 @@ const RegisterForm = ({ onSubmit, error, className }: RegisterFormProps) => {
           <InputField
             className="w-full"
             placeholder="Confirm Password"
+            type="password"
             {...getFieldProps('confirmPassword')}
             error={fieldErrors.confirmPassword}
             setValue={getSetFieldFunc('confirmPassword')}

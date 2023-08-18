@@ -1,12 +1,9 @@
-export interface LoginFormSubmitData {
-  email: string;
-  password: string;
-  remember: boolean;
-}
+import { AuthTypes } from '@/types';
 
-export interface RegisterFormSubmitData {
-  email: string;
-  password: string;
-  name: string;
+export type LoginFormSubmitData = AuthTypes.UserLogin & {
+  remember: boolean;
+};
+
+export type RegisterFormSubmitData = AuthTypes.UserRegister & {
   agree: boolean;
-}
+};
