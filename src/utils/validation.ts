@@ -1,5 +1,13 @@
 type ReturnResult = string | null;
 
+export const validateIsRequire = (value: string): ReturnResult => {
+  if (!value) {
+    return 'This field is required';
+  }
+
+  return null;
+};
+
 export const validateEmail = (email: string): ReturnResult => {
   if (!email) {
     return 'Email is required';
@@ -66,6 +74,20 @@ export const validateConfirmPassword = (
 
   if (password !== confirmPassword) {
     return 'Confirm password does not match';
+  }
+
+  return null;
+};
+
+export const validateNumberPhone = (numberPhone: string): ReturnResult => {
+  if (!numberPhone) {
+    return 'Number phone is required';
+  }
+
+  const numberPhoneRegex = /^\d{10}$/;
+
+  if (!numberPhoneRegex.test(numberPhone)) {
+    return 'Number phone has wrong format!';
   }
 
   return null;

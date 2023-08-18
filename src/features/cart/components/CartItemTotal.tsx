@@ -2,6 +2,7 @@ import { Button, Disclosure } from '@/components/Elements';
 import { InputSelect } from '@/components/Form';
 import { moneyUtils } from '@/utils';
 import clsx from 'clsx';
+import { Link } from 'react-router-dom';
 
 interface CartItemTotalProps {
   className?: string;
@@ -77,6 +78,11 @@ export const CartItemTotal = ({
           </p>
         </Item>
       </ul>
+      <Link to="checkout">
+        <Button className="mt-4 w-full" uppercase>
+          Proceed To Checkout
+        </Button>
+      </Link>
     </div>
   );
 };

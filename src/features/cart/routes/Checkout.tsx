@@ -1,30 +1,42 @@
 import { Link } from '@/components/Elements';
-import { BillingDetailsForm, OrderBilling } from '../components';
+import {
+  BillingDetailsForm,
+  FormBillingSubmitData,
+  OrderBilling,
+} from '../components';
 import { useShoppingItem } from '../hooks';
-import { useScrollTop } from '@/hooks';
+import { useAuth, useScrollTop } from '@/hooks';
 
 export const Checkout = () => {
   useScrollTop();
   const { shoppingItems, cartState } = useShoppingItem();
+  const { isAuthenticated } = useAuth();
+  const handleSubmit = (data: FormBillingSubmitData) => {
+    console.log(data);
+  };
 
   return (
     <section className="wrapper">
       <h5>Checkout</h5>
       <div className="mb-9 mt-6">
-        <p className="font-body-small">
-          Returning customer? <Link to="/login">Click here to login</Link>
-        </p>
+        {!isAuthenticated && (
+          <p className="font-body-small">
+            Returning customer?
+            <Link to="/account/login">Click here to login</Link>
+          </p>
+        )}
         <p className="font-body-small">
           Have a coupon?
           <Link to="/shopping-cart"> Click here to enter your code</Link>
         </p>
       </div>
-      <BillingDetailsForm className="mb-10" />
-      <OrderBilling
-        items={shoppingItems}
-        subtotal={cartState.totalPrice}
-        className="mb-10"
-      />
+      <BillingDetailsForm className="mb-10" onSubmit={handleSubmit}>
+        <OrderBilling
+          items={shoppingItems}
+          subtotal={cartState.totalPrice}
+          className="mb-10"
+        />
+      </BillingDetailsForm>
     </section>
   );
 };
