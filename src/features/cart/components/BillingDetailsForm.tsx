@@ -1,7 +1,8 @@
 import { InputField, InputSelect } from '@/components/Form';
-import { useFormValidator } from '@/hooks';
+import { useAuth, useFormValidator } from '@/hooks';
 import clsx from 'clsx';
 import { BillingFields, validateBillingRules } from '../helppers';
+import { useEffect } from 'react';
 
 export type FormBillingSubmitData = BillingFields;
 
@@ -16,8 +17,15 @@ export const BillingDetailsForm = ({
   onSubmit,
   children,
 }: BillingDetailsFormProps) => {
-  const { getFieldProps, getSetFieldFunc, errors, getFormValidationResult } =
-    useFormValidator(validateBillingRules);
+  const {
+    getFieldProps,
+    getSetFieldFunc,
+    errors,
+    getFormValidationResult,
+    setFieldValues,
+  } = useFormValidator(validateBillingRules);
+
+  const { user } = useAuth();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -26,6 +34,15 @@ export const BillingDetailsForm = ({
       onSubmit(fields as FormBillingSubmitData);
     }
   };
+
+  useEffect(() => {
+    if (user) {
+      setFieldValues({
+        firstName: user.firstName,
+        email: user.email,
+      });
+    }
+  }, [user, setFieldValues]);
 
   return (
     <form className={clsx(className)} onSubmit={handleSubmit}>

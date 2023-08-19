@@ -4,23 +4,31 @@ import { validationUtils } from '@/utils';
 export interface LoginFields {
   email: string;
   password: string;
+  remeberMe: boolean;
 }
 
 export const validateLoginRules: ValidateRules<LoginFields> = [
   {
     field: 'email',
-    validate: validationUtils.validateEmail,
+    validate: (value) => validationUtils.validateEmail(value as string),
   },
   {
     field: 'password',
-    validate: validationUtils.validatePassword,
+    validate: (value) => validationUtils.validatePassword(value as string),
+  },
+  {
+    field: 'remeberMe',
+    validate: () => null,
+    defaultValue: false,
   },
 ];
 
-export interface RegisterFields extends LoginFields {
+export interface RegisterFields {
   confirmPassword: string;
   firstName: string;
   lastName: string;
+  email: string;
+  password: string;
 }
 
 export const validateRegisterRules: ValidateRules<RegisterFields> = [

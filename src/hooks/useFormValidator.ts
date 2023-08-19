@@ -98,12 +98,17 @@ export const useFormValidator = <T>(validateRules: ValidateRules<T>) => {
     } as React.InputHTMLAttributes<HTMLInputElement>;
   };
 
+  const setFieldValues = (newFields: Partial<T>) => {
+    setFields((prev) => ({ ...prev, ...newFields }));
+  };
+
   return {
     getFormValidationResult,
     getSetFieldFunc,
     getFieldProps,
     handleBlur,
     handleFocus,
+    setFieldValues,
     errors,
   };
 };
