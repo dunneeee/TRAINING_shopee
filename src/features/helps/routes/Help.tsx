@@ -59,10 +59,10 @@ export const Help = () => {
         <h3 className="">Help</h3>
       </div>
       <ul className="">
-        {helpItems.map((item) => {
+        {helpItems.map((item, index) => {
           return (
-            <Fragment key={item.to}>
-              <HelpItem {...item} />
+            <Fragment key={index}>
+              <HelpItem {...item} key={item.to} />
               <li className="wrapper">
                 <div className="line bg-lightGray"></div>
               </li>

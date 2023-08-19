@@ -4,3 +4,4 @@ export * from './Link';
 export * from './Disclosure';
 export * from './Toast';
 export * from './Message';
+export * from './Pagination';

@@ -17,3 +17,4 @@ export { ReactComponent as Accepted } from '@assets/Icons/accepted.svg';
 export { ReactComponent as DeliveryBox } from '@assets/Icons/delivery-box.svg';
 export { ReactComponent as Return } from '@assets/Icons/return.svg';
 export { ReactComponent as PadLock } from '@assets/Icons/padlock.svg';
+export { ReactComponent as Reply } from '@assets/Icons/reply.svg';

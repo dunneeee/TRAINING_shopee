@@ -4,6 +4,7 @@ import { ProductRoutes } from '@/features/product';
 import { CartRoutes } from '@/features/cart';
 import { OnlyHeader } from '@/components/Layouts';
 import { HelpRoutes } from '@/features/helps';
+import { BlogRoutes } from '@/features/blog';
 
 export const commonRoutes: MyRouteObject[] = [
   {
@@ -35,6 +36,10 @@ export const commonRoutes: MyRouteObject[] = [
   {
     path: '/about',
     element: <About />,
+  },
+  {
+    path: '/blog/*',
+    element: <BlogRoutes />,
   },
   {
     path: '*',
