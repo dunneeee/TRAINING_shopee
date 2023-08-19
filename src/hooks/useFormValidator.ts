@@ -1,4 +1,4 @@
-import { ChangeEvent, useState, useMemo } from 'react';
+import { ChangeEvent, useState, useMemo, useCallback } from 'react';
 
 export interface FieldValidation<T> {
   field: keyof T;
@@ -98,17 +98,24 @@ export const useFormValidator = <T>(validateRules: ValidateRules<T>) => {
     } as React.InputHTMLAttributes<HTMLInputElement>;
   };
 
-  const setFieldValues = (newFields: Partial<T>) => {
+  const setFieldValues = useCallback((newFields: Partial<T>) => {
     setFields((prev) => ({ ...prev, ...newFields }));
+  }, []);
+
+  const getInputProps = (fieldName: keyof T) => {
+    return {
+      ...getFieldProps(fieldName),
+      error: errors[fieldName],
+      setValue: getSetFieldFunc(fieldName),
+    };
   };
 
   return {
     getFormValidationResult,
     getSetFieldFunc,
     getFieldProps,
-    handleBlur,
-    handleFocus,
     setFieldValues,
+    getInputProps,
     errors,
   };
 };

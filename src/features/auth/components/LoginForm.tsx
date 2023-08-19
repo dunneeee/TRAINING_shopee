@@ -14,10 +14,9 @@ interface LoginFormProps {
 
 const LoginForm = ({ onSubmit, error, className }: LoginFormProps) => {
   const {
-    getFieldProps,
-    getSetFieldFunc,
+    getInputProps,
     setFieldValues,
-    errors: validateErrors,
+    getFieldProps,
     getFormValidationResult,
   } = useFormValidator(validateLoginRules);
 
@@ -54,9 +53,7 @@ const LoginForm = ({ onSubmit, error, className }: LoginFormProps) => {
           <InputField
             className="w-full"
             placeholder="Email"
-            {...getFieldProps('email')}
-            setValue={getSetFieldFunc('email')}
-            error={validateErrors.email}
+            {...getInputProps('email')}
           />
         </li>
         <li
@@ -68,9 +65,7 @@ const LoginForm = ({ onSubmit, error, className }: LoginFormProps) => {
             className="w-full"
             placeholder="Password"
             type="password"
-            {...getFieldProps('password')}
-            setValue={getSetFieldFunc('password')}
-            error={validateErrors.password}
+            {...getInputProps('password')}
           />
         </li>
         <li className="mb-3">

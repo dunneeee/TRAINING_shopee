@@ -23,6 +23,7 @@ export const BillingDetailsForm = ({
     errors,
     getFormValidationResult,
     setFieldValues,
+    getInputProps,
   } = useFormValidator(validateBillingRules);
 
   const { user } = useAuth();
@@ -52,16 +53,14 @@ export const BillingDetailsForm = ({
           <InputField
             placeholder="First name*"
             className="w-full"
-            {...getFieldProps('firstName')}
-            setValue={getSetFieldFunc('firstName')}
-            error={errors.firstName}
+            {...getInputProps('firstName')}
           />
         </li>
         <li className="mb-6">
           <InputField
             placeholder="Company name"
             className="w-full"
-            error={errors.companyName}
+            {...getInputProps('companyName')}
           />
         </li>
         <li className="mb-6">
@@ -86,45 +85,35 @@ export const BillingDetailsForm = ({
           <InputField
             placeholder="Street address*"
             className="w-full"
-            {...getFieldProps('address')}
-            setValue={getSetFieldFunc('address')}
-            error={errors.address}
+            {...getInputProps('address')}
           />
         </li>
         <li className="mb-6">
           <InputField
             placeholder="Postcode / ZIP*"
             className="w-full"
-            {...getFieldProps('postcode')}
-            setValue={getSetFieldFunc('postcode')}
-            error={errors.postcode}
+            {...getInputProps('postcode')}
           />
         </li>
         <li className="mb-6">
           <InputField
             placeholder="Town / City*"
             className="w-full"
-            {...getFieldProps('city')}
-            setValue={getSetFieldFunc('city')}
-            error={errors.city}
+            {...getInputProps('city')}
           />
         </li>
         <li className="mb-6">
           <InputField
             placeholder="Phone*"
             className="w-full"
-            {...getFieldProps('phone')}
-            setValue={getSetFieldFunc('phone')}
-            error={errors.phone}
+            {...getInputProps('phone')}
           />
         </li>
         <li className="mb-6">
           <InputField
             placeholder="Email address*"
             className="w-full"
-            {...getFieldProps('email')}
-            setValue={getSetFieldFunc('email')}
-            error={errors.email}
+            {...getInputProps('email')}
           />
         </li>
         <li className="mb-6">

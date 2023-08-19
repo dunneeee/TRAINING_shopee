@@ -1,6 +1,5 @@
 import clsx from 'clsx';
 import { BillingForm } from '../components';
-import { Button } from '@/components/Elements';
 import { useState } from 'react';
 
 interface InfoBlockProps {
@@ -56,9 +55,6 @@ const Address = () => {
         description="You have not set up this type of address yet."
       >
         <BillingForm className="mb-10" />
-        <Button uppercase className="w-full">
-          Save Address
-        </Button>
       </InfoBlock>
       <InfoBlock
         className="mb-11"
