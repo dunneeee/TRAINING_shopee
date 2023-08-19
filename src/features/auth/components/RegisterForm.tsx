@@ -12,12 +12,9 @@ interface RegisterFormProps {
 }
 
 const RegisterForm = ({ onSubmit, error, className }: RegisterFormProps) => {
-  const {
-    getFieldProps,
-    errors: fieldErrors,
-    getFormValidationResult,
-    getSetFieldFunc,
-  } = useFormValidator(validateRegisterRules);
+  const { getFormValidationResult, getInputProps } = useFormValidator(
+    validateRegisterRules
+  );
 
   const hasErrorMarginClasses = error ? 'mt-3' : 'mt-20';
 
@@ -46,27 +43,21 @@ const RegisterForm = ({ onSubmit, error, className }: RegisterFormProps) => {
           <InputField
             className="w-full"
             placeholder="First Name"
-            {...getFieldProps('firstName')}
-            error={fieldErrors.firstName}
-            setValue={getSetFieldFunc('firstName')}
+            {...getInputProps('firstName')}
           />
         </li>
         <li className="mb-11">
           <InputField
             className="w-full"
             placeholder="Last Name"
-            {...getFieldProps('lastName')}
-            error={fieldErrors.lastName}
-            setValue={getSetFieldFunc('lastName')}
+            {...getInputProps('lastName')}
           />
         </li>
         <li className="mb-11">
           <InputField
             className="w-full"
             placeholder="Email"
-            {...getFieldProps('email')}
-            error={fieldErrors.email}
-            setValue={getSetFieldFunc('email')}
+            {...getInputProps('email')}
           />
         </li>
         <li
@@ -78,9 +69,7 @@ const RegisterForm = ({ onSubmit, error, className }: RegisterFormProps) => {
             className="w-full"
             placeholder="Password"
             type="password"
-            {...getFieldProps('password')}
-            error={fieldErrors.password}
-            setValue={getSetFieldFunc('password')}
+            {...getInputProps('password')}
           />
         </li>
         <li className="mb-11">
@@ -88,9 +77,7 @@ const RegisterForm = ({ onSubmit, error, className }: RegisterFormProps) => {
             className="w-full"
             placeholder="Confirm Password"
             type="password"
-            {...getFieldProps('confirmPassword')}
-            error={fieldErrors.confirmPassword}
-            setValue={getSetFieldFunc('confirmPassword')}
+            {...getInputProps('confirmPassword')}
           />
         </li>
         <li className="">
