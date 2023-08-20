@@ -40,13 +40,13 @@ export const Footer = ({ className }: Props) => {
         </div>
         <ul className="mt-10 hidden w-full justify-end gap-x-4 md:flex">
           <li>
-            <Icons.Facebook className="h-5 w-5 " />
+            <Icons.Facebook className="h-4 w-4 " />
           </li>
           <li>
-            <Icons.Instagram className="h-5 w-5" />
+            <Icons.Instagram className="h-4 w-4" />
           </li>
           <li>
-            <Icons.Twitter className="h-5 w-5" />
+            <Icons.Twitter className="h-4 w-4" />
           </li>
         </ul>
       </div>
@@ -59,7 +59,7 @@ export const Footer = ({ className }: Props) => {
         <Link
           className={clsx(
             'font-body-small mb-2 block w-full',
-            'md:font-body-large md:w-auto md:font-normal md:text-darkGray'
+            'md:font-body-medium md:w-auto md:font-normal md:text-darkGray'
           )}
           to="/contact"
         >
@@ -68,7 +68,7 @@ export const Footer = ({ className }: Props) => {
         <Link
           className={clsx(
             'font-body-small mb-2 block w-full',
-            'md:font-body-large md:w-auto md:font-normal md:text-darkGray'
+            'md:font-body-medium md:w-auto md:font-normal md:text-darkGray'
           )}
         >
           TERMS OF SERVICES
@@ -76,7 +76,7 @@ export const Footer = ({ className }: Props) => {
         <Link
           className={clsx(
             'font-body-small mb-2 block w-full',
-            'md:font-body-large md:w-auto md:font-normal md:text-darkGray'
+            'md:font-body-medium md:w-auto md:font-normal md:text-darkGray'
           )}
         >
           SHIPPING AND RETURNS
