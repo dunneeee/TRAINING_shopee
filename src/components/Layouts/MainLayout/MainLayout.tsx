@@ -11,7 +11,7 @@ const MainLayout = ({ children }: MainLayoutProps) => {
   return (
     <>
       <HeaderWithNavbar className="wrapper" />
-      <div className="wrapper mb-10">
+      <div className="wrapper mb-10 md:hidden">
         <Search className="w-full" />
       </div>
       {isNavbarOpen ? <Navbar className="wrapper" /> : children}

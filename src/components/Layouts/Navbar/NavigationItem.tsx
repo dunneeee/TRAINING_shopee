@@ -18,7 +18,7 @@ export const NavigationItem = ({
 }: NavigationItemItemProps) => {
   const link = to ? to : '#';
   const activeClasses =
-    'relative after:bg-black after:w-full after:absolute after:h-px after:bottom-0 after:left-0';
+    'relative after:bg-black after:w-full after:absolute after:h-px after:bottom-0 after:left-0 z-[1]';
   const currentClasses = 'py-3 cursor-pointer';
   let element = null;
   if (to)
@@ -30,13 +30,13 @@ export const NavigationItem = ({
           return clsx(currentClasses, isActive && activeClasses, className);
         }}
       >
-        <h3 className="inline-block">{children}</h3>
+        <h3 className="md:font-body-medium inline-block">{children}</h3>
       </NavLink>
     );
   else
     element = (
       <span className={currentClasses} onClick={onClick}>
-        <h3 className="inline-block">{children}</h3>
+        <h3 className="md:font-body-medium inline-block">{children}</h3>
       </span>
     );
 

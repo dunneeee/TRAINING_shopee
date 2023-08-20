@@ -52,10 +52,10 @@ export const CartItem = ({
 }: CartItemProps) => {
   return (
     <div className={clsx('flex', className)}>
-      <div className="w-1/2">
+      <div className="w-1/2 md:w-2/12">
         <img src={cartItem.image} alt={cartItem.name} />
       </div>
-      <div className="flex w-1/2 flex-col justify-between pl-2">
+      <div className="flex w-1/2 flex-col justify-between pl-2 md:w-10/12">
         <div className="top">
           <div className="flex">
             <p>{cartItem.name} </p>

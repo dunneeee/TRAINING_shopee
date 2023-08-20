@@ -35,9 +35,14 @@ const navigationItems = [
 interface NavigationProps {
   closeNavbar?: () => void;
   className?: string;
+  children?: React.ReactNode;
 }
 
-export const Navigation = ({ className, closeNavbar }: NavigationProps) => {
+export const Navigation = ({
+  className,
+  closeNavbar,
+  children,
+}: NavigationProps) => {
   return (
     <ul className={clsx(className)}>
       {navigationItems.map((item) => (
@@ -45,6 +50,7 @@ export const Navigation = ({ className, closeNavbar }: NavigationProps) => {
           {item.label}
         </NavigationItem>
       ))}
+      {children}
     </ul>
   );
 };
