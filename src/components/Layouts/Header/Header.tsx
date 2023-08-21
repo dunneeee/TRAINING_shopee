@@ -71,11 +71,11 @@ export const Header = ({
           <NavigationItem onClick={handleLogout}>Logout</NavigationItem>
         )}
       </Navigation>
-      <div
-        className="relative ml-auto cursor-pointer md:ml-0"
-        ref={shoppingBagContainRef}
-      >
-        <Icons.ShoppingCart onClick={handleCartClick} />
+      <div className="relative ml-auto md:ml-0" ref={shoppingBagContainRef}>
+        <Icons.ShoppingCart
+          className="cursor-pointer"
+          onClick={handleCartClick}
+        />
         {cartState.totalItems > 0 && (
           <CartDot count={cartState.totalItems} className="absolute" />
         )}

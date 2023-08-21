@@ -1,33 +1,20 @@
 import clsx from 'clsx';
 import { ProductData, ProductItem } from '.';
-import { useMemo } from 'react';
 
 interface ProductGridProps {
   products: ProductData[];
   className?: string;
-  columns?: number;
   gap?: number;
 }
 
-const useGridColumns = (columns: number) => {
-  return useMemo(() => {
-    return `w-1/${columns} p-2`;
-  }, [columns]);
-};
-
-export const ProductGrid = ({
-  products,
-  className,
-  columns = 2,
-}: ProductGridProps) => {
-  const gridColumns = useGridColumns(columns);
+export const ProductGrid = ({ products, className }: ProductGridProps) => {
   return (
     <div className={clsx('overflow-hidden', className)}>
       <ul className="-m-2 flex flex-wrap">
         {products.map((product) => {
           return (
             <li
-              className={clsx(gridColumns, 'p-2')}
+              className={clsx('w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5', 'p-2')}
               key={product.name + product.id}
             >
               <ProductItem className="h-full w-full" product={product} />
