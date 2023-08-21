@@ -11,7 +11,7 @@ const usePage = <T>({ currentPage = 1, pageSize = 3, data }: PageProps<T>) => {
 
   const currentData = useMemo(() => {
     const start = (page - 1) * pageSize;
-    const end = start + 10;
+    const end = start + pageSize;
     return data.slice(start, end);
   }, [page, data, pageSize]);
 

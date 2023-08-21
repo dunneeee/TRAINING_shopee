@@ -46,12 +46,21 @@ const BlogContent = ({ className, content }: BlogContentProps) => {
   switch (content.type) {
     case 'image':
       element = (
-        <img src={content.url} alt={content.alt} className={className} />
+        <img
+          src={content.url}
+          alt={content.alt}
+          className={clsx(
+            className,
+            'mx-auto block w-full max-w-2xl object-cover'
+          )}
+        />
       );
       break;
     case 'text':
       element = (
-        <p className={clsx('font-body-small', className)}>{content.text}</p>
+        <p className={clsx('font-body-small md:font-body-medium', className)}>
+          {content.text}
+        </p>
       );
       break;
     case 'subheader':
@@ -64,7 +73,10 @@ const BlogContent = ({ className, content }: BlogContentProps) => {
       element = (
         <ul className={clsx(className)}>
           {content.items.map((item, index) => (
-            <li key={index} className="font-body-small ml-5 list-disc">
+            <li
+              key={index}
+              className="font-body-small md:font-body-medium ml-5 list-disc"
+            >
               {item}
             </li>
           ))}
@@ -103,21 +115,25 @@ export const BlogDetail = () => {
       <div className="line mb-9 bg-gray"></div>
       <div className="mb-14">
         <h5 className="mb-3">Leave a reply</h5>
-        <p className="font-body-small text-darkGray">
+        <p className="font-body-small md:font-body-medium text-darkGray">
           Your email address will not be published. Required fields are marked *
         </p>
       </div>
-      <CommentForm />
-      <ul>
-        {COMMENTS.map((comment, index) => (
-          <li key={comment.id}>
-            <CommentItem comment={comment} />
-            {index !== COMMENTS.length - 1 && (
-              <div className="line my-6 bg-gray"></div>
-            )}
-          </li>
-        ))}
-      </ul>
+      <div className="overflow-hidden">
+        <div className="-m-2 flex flex-wrap">
+          <CommentForm className="w-full p-2 md:w-1/2" />
+          <ul className="w-full p-2 md:w-1/2">
+            {COMMENTS.map((comment, index) => (
+              <li key={comment.id}>
+                <CommentItem comment={comment} />
+                {index !== COMMENTS.length - 1 && (
+                  <div className="line my-6 bg-gray"></div>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
     </section>
   );
 };

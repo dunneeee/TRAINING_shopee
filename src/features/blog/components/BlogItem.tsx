@@ -1,7 +1,7 @@
 import { Link } from '@/components/Elements';
-import { BlogPostTypes } from '@/types';
 import { dateUtils, textUtils } from '@/utils';
 import clsx from 'clsx';
+import { BlogPostTypes } from '..';
 
 interface BlogItemProps {
   className?: string;
@@ -15,8 +15,12 @@ export const BlogItem = ({ blog, className, list = true }: BlogItemProps) => {
 
   return (
     <Comp className={clsx(className)}>
-      <div className="mb-4">
-        <img src={background} alt={topic} />
+      <div className="mb-4 h-60 overflow-hidden rounded">
+        <img
+          src={background}
+          alt={topic}
+          className="block w-full object-cover"
+        />
       </div>
       <p className="font-body-small capitalize text-darkGray">
         {topic} - {dateUtils.formatDate(published)}
