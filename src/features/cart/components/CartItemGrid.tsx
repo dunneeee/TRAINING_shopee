@@ -33,14 +33,17 @@ export const CartItemGrid = ({
   };
   return (
     <ul className={clsx('w-full', className)}>
-      {cartItems.map((item) => (
-        <li key={item.id} className="mb-6">
+      {cartItems.map((item, index) => (
+        <li key={item.id} className="mb-6 md:mb-0">
           <CartItem
             cartItem={item}
             onDecrement={onDecrementItem}
             onIncrement={onIncrementItem}
             onRemove={onRemoveItem}
           />
+          {index !== cartItems.length - 1 && (
+            <hr className="my-4 hidden text-gray md:block" />
+          )}
         </li>
       ))}
       {cartItems.length === 0 && (

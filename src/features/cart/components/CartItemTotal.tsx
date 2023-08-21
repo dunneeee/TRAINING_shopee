@@ -18,8 +18,10 @@ interface ItemProps {
 const Item = ({ children, className, label }: ItemProps) => {
   return (
     <li className={clsx('flex', className)}>
-      <div className="font-body-small w-1/3">{label}</div>
-      <div className="font-body-small w-2/3 text-darkGray">{children}</div>
+      <div className="font-body-small md:font-body-medium w-1/3">{label}</div>
+      <div className="font-body-small md:font-body-medium w-2/3 text-darkGray">
+        {children}
+      </div>
     </li>
   );
 };
@@ -36,7 +38,7 @@ export const CartItemTotal = ({
           {moneyUtils.formatUSD(subtotal)}
         </Item>
         <Item label="SHIPPING">
-          <p className="font-body-small">
+          <p className="font-body-small md:font-body-medium">
             Shipping costs will be calculated once you have provided address.
           </p>
           <Disclosure title="Calculate Shipping" titleClasses="text-black">
@@ -73,7 +75,7 @@ export const CartItemTotal = ({
         </Item>
         <div className="line my-8 bg-darkGray"></div>
         <Item label="TOTAL">
-          <p className="font-body-small text-end">
+          <p className="font-body-small md:font-body-medium text-end">
             {moneyUtils.formatUSD(subtotal)}
           </p>
         </Item>
