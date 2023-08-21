@@ -82,7 +82,10 @@ export const MenuSlider = ({ className, items }: MenuSliderProps) => {
     <div className={clsx(className)}>
       <div className={clsx('relative')}>
         <button
-          className={clsx('absolute left-0 top-1/2 z-[2] -translate-y-1/2')}
+          className={clsx(
+            'absolute left-0 top-1/2 z-[2] -translate-y-1/2',
+            'md:hidden'
+          )}
           onClick={handlePrev}
         >
           <Icons.AngleArrowRight
@@ -91,13 +94,19 @@ export const MenuSlider = ({ className, items }: MenuSliderProps) => {
         </button>
         <div className="overflow-hidden">
           <ul
-            className="flex items-center transition"
+            className={clsx(
+              'flex items-center transition',
+              'md:!translate-x-0 md:flex-col'
+            )}
             style={sliderContainerCss}
           >
             {items.map((item, index) => (
               <li
                 key={item.id}
-                className={clsx('inline-flex flex-shrink-0 basis-1/3')}
+                className={clsx(
+                  'inline-flex flex-shrink-0 basis-1/3',
+                  'md:w-3/5 md:flex-shrink md:basis-auto'
+                )}
               >
                 <NavLink
                   to={item.to}
@@ -105,7 +114,7 @@ export const MenuSlider = ({ className, items }: MenuSliderProps) => {
                     clsx(
                       isActive ? '!border-black text-black' : 'text-darkGray',
                       (index !== items.length - 1 || index !== 0) && 'px-2',
-                      'block w-full whitespace-nowrap border-b border-b-gray py-4 text-center'
+                      'block w-full whitespace-nowrap border-b border-b-gray py-4 text-center md:border-transparent'
                     )
                   }
                 >
@@ -116,7 +125,10 @@ export const MenuSlider = ({ className, items }: MenuSliderProps) => {
           </ul>
         </div>
         <button
-          className={clsx('absolute right-0 top-1/2 z-[2] -translate-y-1/2')}
+          className={clsx(
+            'absolute right-0 top-1/2 z-[2] -translate-y-1/2',
+            'md:hidden'
+          )}
           onClick={handleNext}
         >
           <Icons.AngleArrowRight

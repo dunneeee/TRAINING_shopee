@@ -14,8 +14,10 @@ const Register = () => {
 
   return (
     <section className="wrapper">
-      <AuthHeader />
-      <RegisterForm onSubmit={handleRegister} error={registerState.error} />
+      <div className="mx-auto md:max-w-lg">
+        <AuthHeader />
+        <RegisterForm onSubmit={handleRegister} error={registerState.error} />
+      </div>
     </section>
   );
 };

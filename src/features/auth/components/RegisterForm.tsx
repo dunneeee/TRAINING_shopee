@@ -82,7 +82,7 @@ const RegisterForm = ({ onSubmit, error, className }: RegisterFormProps) => {
         </li>
         <li className="">
           <Button uppercase className="w-full" type="submit">
-            Sign In
+            Register
           </Button>
         </li>
       </ul>
