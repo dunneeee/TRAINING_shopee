@@ -12,7 +12,7 @@ interface SearchProductProps {
 export const SearchProduct = ({ className }: SearchProductProps) => {
   const { handleSearch, result, search } = useSearchProduct();
   const [showResult, setShowResult] = useState(false);
-  const searchInputRef = useRef<HTMLInputElement | null>(null);
+  const searchInputRef = useRef<HTMLDivElement | null>(null);
   useClickOutside(searchInputRef, () => setShowResult(false));
   return (
     <Search
