@@ -1,5 +1,5 @@
 import { Button, Logo } from '@/components/Elements';
-import { Search } from '@/components/Form';
+import { SearchProduct } from '@/components/Product';
 import { useNavigate } from 'react-router-dom';
 
 interface NotFoundProps {
@@ -19,7 +19,7 @@ const NotFound = ({ label = 'This page not found' }: NotFoundProps) => {
         <Logo className="block w-full text-center" />
       </div>
       <div className="">
-        <Search className="w-full" />
+        <SearchProduct />
       </div>
       <div className=" flex flex-1 flex-col items-center justify-center text-center">
         <h4 className="mb-3">404 ERROR</h4>

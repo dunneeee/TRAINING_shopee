@@ -9,8 +9,14 @@ export interface AuthContextType {
 export const AuthContext = createContext<AuthContextType>({
   authState: {
     users: [],
-    user: null,
-    isAuthenticated: false,
+    login: {
+      error: null,
+      user: null,
+    },
+    register: {
+      error: null,
+      success: false,
+    },
   },
   authDispatch: () => initialAuthState,
 });
