@@ -1,3 +1,4 @@
+import { forwardRef } from 'react';
 import { Icons } from '@/constants';
 import clsx from 'clsx';
 
@@ -6,36 +7,42 @@ type Props = React.InputHTMLAttributes<HTMLInputElement> & {
   showResult?: boolean;
 };
 
-export const Search = ({
-  className,
-  placeholder = 'Search',
-  children,
-  showResult = false,
-  ...props
-}: Props) => {
-  return (
-    <div
-      className={clsx(
-        'relative inline-flex items-center rounded bg-lightGray',
-        className
-      )}
-    >
-      <div className="pl-[10px]">
-        <Icons.Search className="text-darkGray" />
-      </div>
-      <input
-        placeholder={placeholder}
-        className="h-full w-full bg-transparent px-2 py-[7px]"
-        {...props}
-      />
+export const Search = forwardRef<HTMLDivElement, Props>(
+  (
+    {
+      className,
+      placeholder = 'Search',
+      children,
+      showResult = false,
+      ...props
+    },
+    ref
+  ) => {
+    return (
       <div
+        ref={ref}
         className={clsx(
-          'absolute top-full z-[10] w-full',
-          !showResult && 'hidden'
+          'relative inline-flex items-center rounded bg-lightGray',
+          className
         )}
       >
-        {children}
+        <div className="pl-[10px]">
+          <Icons.Search className="text-darkGray" />
+        </div>
+        <input
+          placeholder={placeholder}
+          className="h-full w-full bg-transparent px-2 py-[7px]"
+          {...props}
+        />
+        <div
+          className={clsx(
+            'absolute top-full z-[10] w-full',
+            !showResult && 'hidden'
+          )}
+        >
+          {children}
+        </div>
       </div>
-    </div>
-  );
-};
+    );
+  }
+);
