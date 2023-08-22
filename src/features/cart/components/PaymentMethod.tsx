@@ -40,7 +40,7 @@ export const PaymentMethod = ({
             value={op.value}
             checked={selectedOption.value === op.value}
           >
-            <p className="font-body-small mt-3 text-darkGray">
+            <p className="font-body-small md:font-body-medium mt-3 text-darkGray">
               {op.description}
             </p>
           </InputRadio>

@@ -100,8 +100,8 @@ export const BlogDetail = () => {
     <section className="wrapper">
       <div className="mb-6 text-center">
         <h3 className="mb-[10px] capitalize">{blogPost.title}</h3>
-        <p className="font-body-small">
-          <span className="text-darkGray">by</span> {blogPost.author}{' '}
+        <p className="font-body-small md:font-body-medium">
+          <span className="text-darkGray">by</span> {blogPost.author}
           <span className="text-darkGray">
             - {dateUtils.formatDate(blogPost.published)}
           </span>

@@ -35,7 +35,7 @@ export const Footer = ({ className }: Props) => {
               <Icons.ArrowRight className="cursor-pointer" />
             </div>
           </div>
-          <div className="font-body-small mt-3 flex items-center">
+          <div className="font-body-small md:font-body-medium mt-3 flex items-center">
             <input type="checkbox" className="mr-1" />
             <span>I agree to the website’s terms and conditions</span>
           </div>

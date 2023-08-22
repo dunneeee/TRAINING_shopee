@@ -14,7 +14,7 @@ export const InputRadio = forwardRef<HTMLInputElement, InputRadioProps>(
     return (
       <div className="">
         <label
-          className="font-body-small flex items-center text-black"
+          className="font-body-small md:font-body-medium flex items-center text-black"
           id={value}
         >
           <div

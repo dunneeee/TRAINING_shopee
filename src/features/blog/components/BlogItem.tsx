@@ -22,11 +22,11 @@ export const BlogItem = ({ blog, className, list = true }: BlogItemProps) => {
           className="block w-full object-cover"
         />
       </div>
-      <p className="font-body-small capitalize text-darkGray">
+      <p className="font-body-small md:font-body-medium capitalize text-darkGray">
         {topic} - {dateUtils.formatDate(published)}
       </p>
       <h5>{subtitle}</h5>
-      <p className="font-body-small mb-4 text-darkGray">
+      <p className="font-body-small md:font-body-medium mb-4 text-darkGray">
         {textUtils.shortWord(description)}
       </p>
       <Link className="text-primary" to={id}>
