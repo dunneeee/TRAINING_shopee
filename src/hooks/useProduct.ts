@@ -7,9 +7,13 @@ const useProduct = () => {
   if (!context)
     throw new Error('useProduct must be used within a ProductProvider');
 
-  const getProducts = (
-    filter: (product: ProductTypes.Type, index: number) => boolean = () => true
-  ): ProductTypes.Type[] => context.productState.products.filter(filter);
+  const getProducts = useCallback(
+    (
+      filter: (product: ProductTypes.Type, index: number) => boolean = () =>
+        true
+    ): ProductTypes.Type[] => context.productState.products.filter(filter),
+    [context.productState.products]
+  );
 
   const getSortProducts = useCallback(
     (data: ProductTypes.ShortType[], by: keyof ProductTypes.Type = 'name') => {
