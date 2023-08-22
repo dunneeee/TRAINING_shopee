@@ -22,11 +22,11 @@ export const Navbar = ({ className }: NavbarProps) => {
       <div className="line mb-6 bg-lightGray"></div>
       <ul className="">
         <NavigationItem
-          to="/account"
+          to={isAuthenticated ? '/account' : '/account/login'}
           leftIcon={<Icons.User />}
           onClick={closeNavbar}
         >
-          My account
+          {isAuthenticated ? 'Account' : 'Login'}
         </NavigationItem>
         {isAuthenticated && (
           <NavigationItem leftIcon={<Icons.Logout />} onClick={handleLogout}>

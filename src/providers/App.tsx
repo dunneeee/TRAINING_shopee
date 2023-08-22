@@ -7,7 +7,9 @@ interface AppProps {
 export const AppProvider = ({ children }: AppProps) => {
   return (
     <NavbarProvider>
-      <Router>{children}</Router>
+      <Router>
+        <div className="overflow-hidden">{children}</div>
+      </Router>
     </NavbarProvider>
   );
 };

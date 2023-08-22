@@ -3,12 +3,14 @@ import clsx from 'clsx';
 
 type Props = React.InputHTMLAttributes<HTMLInputElement> & {
   children?: React.ReactNode;
+  showResult?: boolean;
 };
 
 export const Search = ({
   className,
   placeholder = 'Search',
   children,
+  showResult = false,
   ...props
 }: Props) => {
   return (
@@ -26,7 +28,12 @@ export const Search = ({
         className="h-full w-full bg-transparent px-2 py-[7px]"
         {...props}
       />
-      <div className="absolute left-0 top-full z-[10] w-full bg-black">
+      <div
+        className={clsx(
+          'absolute top-full z-[10] w-full',
+          !showResult && 'hidden'
+        )}
+      >
         {children}
       </div>
     </div>

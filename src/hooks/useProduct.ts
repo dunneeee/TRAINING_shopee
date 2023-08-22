@@ -1,6 +1,6 @@
 import { ProductContext } from '@/contexts';
 import { ProductTypes } from '@/types';
-import { useContext } from 'react';
+import { useCallback, useContext } from 'react';
 
 const useProduct = () => {
   const context = useContext(ProductContext);
@@ -11,13 +11,22 @@ const useProduct = () => {
     filter: (product: ProductTypes.Type, index: number) => boolean = () => true
   ): ProductTypes.Type[] => context.productState.products.filter(filter);
 
-  const getSortProducts = (
-    filter: (
-      sortProduct: ProductTypes.ShortType,
-      index: number
-    ) => boolean = () => true
-  ): ProductTypes.ShortType[] =>
-    context.productState.sortProducts.filter(filter);
+  const getSortProducts = useCallback(
+    (data: ProductTypes.ShortType[], by: keyof ProductTypes.Type = 'name') => {
+      switch (by) {
+        case 'name':
+          data.sort((a, b) => a.name.localeCompare(b.name));
+          break;
+        case 'price':
+          data.sort((a, b) => a.price - b.price);
+          break;
+        default:
+          break;
+      }
+      return data;
+    },
+    []
+  );
 
   const returnValue = {
     productState: context.productState,

@@ -27,7 +27,7 @@ export const CommentItem = ({ comment, className }: CommentItemProps) => {
       <div className="">
         <img src={user.avatar} alt="" className="h-[70px] w-[70px]" />
       </div>
-      <div className="ml-2 flex-1">
+      <div className="ml-2 flex-1 overflow-hidden">
         <div className="flex flex-wrap">
           <p className="font-body-small mb-2 w-full">{user.name}</p>
           <p className="font-body-small text-darkGray">
