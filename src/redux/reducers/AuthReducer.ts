@@ -117,6 +117,20 @@ export const authReducer = (
         },
       };
     }
+    case AuthActionTypes.UPDATE_USER: {
+      const newInfo = action.payload;
+      const user = state.users.find((u) => u.id === newInfo.id) || null;
+      if (!user) return state;
+      const newUser = { ...user, ...newInfo };
+      return {
+        ...state,
+        users: state.users.map((u) => (u.id === newUser.id ? newUser : u)),
+        login: {
+          ...state.login,
+          user: newUser,
+        },
+      };
+    }
     default:
       return state;
   }

@@ -53,7 +53,7 @@ export const BLOGS: BlogPostTypes.Type[] = [
     title: 'Fast Fashion, And Faster Fashion',
     author: 'ANNY JOHNSON',
     published: '2021-01-01',
-    background: Images.BLOG_TOP_TREND_2,
+    background: Images.PRODUCT_WITH_CARE,
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, diam id tincidunt dapibus, magna quam ultricies nunc, nec aliquam nisl nunc quis nunc. Sed euismod, diam id tincidunt dapibus, magna quam ultricies nunc, nec aliquam nisl nunc quis nunc.',
     subtitle: 'Top Trends From Spring',
@@ -283,7 +283,7 @@ export const BLOGS: BlogPostTypes.Type[] = [
     title: 'Fast Fashion, And Faster Fashion',
     author: 'ANNY JOHNSON',
     published: '2023-01-01',
-    background: Images.PRODUCT_WITH_CARE,
+    background: Images.BLOG_TOP_TREND,
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, diam id tincidunt dapibus, magna quam ultricies nunc, nec aliquam nisl nunc quis nunc. Sed euismod, diam id tincidunt dapibus, magna quam ultricies nunc, nec aliquam nisl nunc quis nunc.',
     subtitle: 'Top Trends From Spring',

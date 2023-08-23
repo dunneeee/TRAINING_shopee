@@ -41,7 +41,7 @@ export const ProductDetail = () => {
         <Toast
           remove={hideToast}
           type={toast.type}
-          className="md:wrapper fixed bottom-0 z-[99] md:left-1/2 md:-translate-x-1/2"
+          className="md:wrapper fixed bottom-0 z-[99] md:bottom-auto md:left-1/2 md:top-2 md:-translate-x-1/2"
           link={toast.link}
         >
           {toast.message}
