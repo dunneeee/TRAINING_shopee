@@ -32,6 +32,7 @@ export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> &
     size?: keyof typeof SIZE;
     uppercase?: boolean;
     shape?: keyof typeof SHAPE;
+    disabled?: boolean;
   };
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
@@ -57,6 +58,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       VARIANTS[variant],
       SIZE[size],
       SHAPE[shape],
+      props.disabled && 'opacity-50',
       className
     );
 

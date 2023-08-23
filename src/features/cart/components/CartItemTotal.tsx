@@ -81,7 +81,7 @@ export const CartItemTotal = ({
         </Item>
       </ul>
       <Link to="checkout">
-        <Button className="mt-4 w-full" uppercase>
+        <Button className="mt-4 w-full" uppercase disabled={subtotal === 0}>
           Proceed To Checkout
         </Button>
       </Link>
