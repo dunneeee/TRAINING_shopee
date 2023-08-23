@@ -4,6 +4,8 @@ import { ProductData, ProductGrid, SearchProduct } from '@/components/Product';
 import { useProduct, useScrollTop } from '@/hooks';
 import { Link } from '@/components/Elements';
 import clsx from 'clsx';
+import { useSearchParams } from 'react-router-dom';
+import { useMemo } from 'react';
 
 const CategoryLinkList = ({
   categories,
@@ -33,7 +35,18 @@ const CategoryLinkList = ({
 
 const Home = () => {
   useScrollTop();
-  const { productState } = useProduct();
+  const { getProductsLiteByCategory, productState } = useProduct();
+  const [searchParams] = useSearchParams();
+
+  const productsRender = useMemo(
+    () =>
+      getProductsLiteByCategory(
+        productState.sortProducts,
+        searchParams.get('category')
+      ),
+    [searchParams, getProductsLiteByCategory, productState.sortProducts]
+  );
+
   const categories = useCategory(productState.sortProducts);
   return (
     <section className="md:wrapper md:overflow-hidden">
@@ -47,7 +60,7 @@ const Home = () => {
           <CategoryList categories={categories} className="md:hidden" />
           <ProductGrid
             className="wrapper mt-4 md:mt-0"
-            products={productState.sortProducts as ProductData[]}
+            products={productsRender as ProductData[]}
           />
         </div>
       </div>
