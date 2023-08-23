@@ -33,11 +33,13 @@ const useProduct = () => {
   );
 
   const getProductsLiteByCategory = useCallback(
-    (data: ProductTypes.ShortType[], category: string | null) => {
-      if (!category) return data;
-      return data.filter((product) => product.category === category);
+    (category: string | null) => {
+      if (!category) return context.productState.sortProducts;
+      return context.productState.sortProducts.filter(
+        (product) => product.category === category
+      );
     },
-    []
+    [context.productState.sortProducts]
   );
 
   const returnValue = {

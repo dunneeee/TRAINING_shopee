@@ -39,12 +39,8 @@ const Home = () => {
   const [searchParams] = useSearchParams();
 
   const productsRender = useMemo(
-    () =>
-      getProductsLiteByCategory(
-        productState.sortProducts,
-        searchParams.get('category')
-      ),
-    [searchParams, getProductsLiteByCategory, productState.sortProducts]
+    () => getProductsLiteByCategory(searchParams.get('category')),
+    [searchParams, getProductsLiteByCategory]
   );
 
   const categories = useCategory(productState.sortProducts);
