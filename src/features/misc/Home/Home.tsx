@@ -45,7 +45,7 @@ const Home = () => {
 
   const categories = useCategory(productState.sortProducts);
   return (
-    <section className="md:wrapper md:overflow-hidden">
+    <section className="md:wrapper">
       <h3 className="wrapper md:mb-2 md:px-0">Home</h3>
       <div className="-m-2 md:flex md:flex-wrap">
         <div className="hidden p-2 md:block md:w-3/12">

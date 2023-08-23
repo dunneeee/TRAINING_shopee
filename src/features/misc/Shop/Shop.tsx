@@ -20,7 +20,7 @@ const Shop = () => {
     [sortBy, getSortProducts, productState.sortProducts]
   );
   return (
-    <section className="wrapper overflow-hidden">
+    <section className="wrapper">
       <h3 className="mb-4">Shop</h3>
       <div className="-m-2 flex flex-wrap">
         <div className="w-full p-2 md:w-3/12">
