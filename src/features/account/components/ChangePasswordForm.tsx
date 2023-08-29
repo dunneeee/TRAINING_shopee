@@ -34,11 +34,13 @@ export const ChangePasswordForm = ({
           <InputField
             placeholder="Current password (leave blank to leave unchanged)"
             className="w-full"
+            type="password"
             {...getInputProps('currentPassword')}
           />
         </li>
         <li className="mb-12">
           <InputField
+            type="password"
             placeholder="New password (leave blank to leave unchanged)"
             className="w-full"
             {...getInputProps('newPassword')}
@@ -46,6 +48,7 @@ export const ChangePasswordForm = ({
         </li>
         <li className="mb-10">
           <InputField
+            type="password"
             placeholder="Confirm new password"
             className="w-full"
             {...getInputProps('confirmNewPassword')}

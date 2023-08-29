@@ -1,81 +1,20 @@
-import { Button } from '@/components/Elements';
-import { Icons } from '@/constants';
 import { useScrollTop } from '@/hooks';
-import clsx from 'clsx';
-import { Fragment } from 'react';
-import { Link } from 'react-router-dom';
-
-interface HelpItemProps {
-  leftIcon?: React.ReactNode;
-  title: string;
-  to: string;
-  className?: string;
-}
-
-type HelpItemThroughProps = Omit<HelpItemProps, 'className'>;
-
-const helpItems: HelpItemThroughProps[] = [
-  {
-    title: 'Terms of Services',
-    to: '#',
-    leftIcon: <Icons.Accepted />,
-  },
-  {
-    title: 'Shipping',
-    to: '#',
-    leftIcon: <Icons.DeliveryBox />,
-  },
-  {
-    title: 'Privacy Policy',
-    to: 'privacy',
-    leftIcon: <Icons.PadLock />,
-  },
-  {
-    title: 'Retun & Exchanges',
-    to: '#',
-    leftIcon: <Icons.Return />,
-  },
-];
-
-const HelpItem = ({ title, to, leftIcon, className }: HelpItemProps) => {
-  return (
-    <>
-      <li className={clsx('wrapper hover:bg-lightGray', className)}>
-        <Link className="flex items-center py-[22px] transition " to={to}>
-          {leftIcon && <span className="mr-4">{leftIcon}</span>}
-          <span>{title}</span>
-          <span className="ml-auto">{<Icons.AngleArrowRight />}</span>
-        </Link>
-      </li>
-    </>
-  );
-};
+import { HelpNavbar } from '../components';
 
 export const Help = () => {
   useScrollTop();
   return (
-    <section className="">
+    <section className="md:wrapper overflow-hidden">
       <div className="wrapper mb-9">
-        <h3 className="">Help</h3>
+        <h3 className="md:hidden">Help</h3>
       </div>
-      <ul className="">
-        {helpItems.map((item, index) => {
-          return (
-            <Fragment key={index}>
-              <HelpItem {...item} key={item.to} />
-              <li className="wrapper">
-                <div className="line bg-lightGray"></div>
-              </li>
-            </Fragment>
-          );
-        })}
-      </ul>
-      <div className="wrapper mt-10">
-        <Link to="/contact">
-          <Button variant="outline" className="w-full">
-            Contact
-          </Button>
-        </Link>
+      <div className="-m-2 flex flex-wrap">
+        <HelpNavbar className="w-full p-2 md:w-3/12" />
+        <div className="hidden md:flex md:w-9/12 md:items-center md:justify-center">
+          <h3 className="">
+            Lorem ih2sum dolor sit amet consectetur adipisicing elit. Quisquam
+          </h3>
+        </div>
       </div>
     </section>
   );

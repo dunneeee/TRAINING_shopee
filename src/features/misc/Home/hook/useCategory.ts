@@ -19,7 +19,7 @@ const useCategory = (products: ProductTypes.ShortType[]) => {
         ...acc,
         {
           title: product.category,
-          to: `/category/${product.category}`,
+          to: `?category=${product.category}`,
         },
       ];
     }, [])

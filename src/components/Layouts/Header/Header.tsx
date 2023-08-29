@@ -64,7 +64,7 @@ export const Header = ({
     >
       <Logo onClick={handleLogoClick} />
       <Navigation className="ml-auto mr-4 hidden gap-4 md:flex">
-        <NavigationItem to="/account">
+        <NavigationItem to={isAuthenticated ? '/account' : '/account/login'}>
           {isAuthenticated ? 'Account' : 'Login'}
         </NavigationItem>
         {isAuthenticated && (

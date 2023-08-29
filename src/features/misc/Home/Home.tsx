@@ -1,10 +1,11 @@
-import { InputField } from '@/components/Form';
 import { Category, CategoryList } from './components';
 import { useCategory } from './hook';
-import { ProductData, ProductGrid } from '@/components/Product';
+import { ProductData, ProductGrid, SearchProduct } from '@/components/Product';
 import { useProduct, useScrollTop } from '@/hooks';
 import { Link } from '@/components/Elements';
 import clsx from 'clsx';
+import { useSearchParams } from 'react-router-dom';
+import { useMemo } from 'react';
 
 const CategoryLinkList = ({
   categories,
@@ -34,21 +35,28 @@ const CategoryLinkList = ({
 
 const Home = () => {
   useScrollTop();
-  const { productState } = useProduct();
+  const { getProductsLiteByCategory, productState } = useProduct();
+  const [searchParams] = useSearchParams();
+
+  const productsRender = useMemo(
+    () => getProductsLiteByCategory(searchParams.get('category')),
+    [searchParams, getProductsLiteByCategory]
+  );
+
   const categories = useCategory(productState.sortProducts);
   return (
-    <section className="md:wrapper md:overflow-hidden">
-      <h3 className="wrapper md:px-0">Home</h3>
+    <section className="md:wrapper">
+      <h3 className="wrapper md:mb-2 md:px-0">Home</h3>
       <div className="-m-2 md:flex md:flex-wrap">
         <div className="hidden p-2 md:block md:w-3/12">
-          <InputField placeholder="Search" className="mb-4 w-full px-1" />
+          <SearchProduct className="mb-4 hidden md:flex" />
           <CategoryLinkList categories={categories} />
         </div>
         <div className="w-full p-2 md:w-9/12">
           <CategoryList categories={categories} className="md:hidden" />
           <ProductGrid
             className="wrapper mt-4 md:mt-0"
-            products={productState.sortProducts as ProductData[]}
+            products={productsRender as ProductData[]}
           />
         </div>
       </div>

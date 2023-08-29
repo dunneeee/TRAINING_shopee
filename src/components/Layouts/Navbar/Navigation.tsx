@@ -26,10 +26,6 @@ const navigationItems = [
     to: '/contact',
     label: 'Contact',
   },
-  {
-    to: '/search',
-    label: 'Search',
-  },
 ];
 
 interface NavigationProps {

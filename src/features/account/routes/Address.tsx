@@ -29,7 +29,9 @@ const InfoBlock = ({
         >
           ADD
         </button>
-        <p className="font-body-small text-darkGray">{description}</p>
+        <p className="font-body-small md:font-body-medium text-darkGray">
+          {description}
+        </p>
       </div>
       <div className={clsx(!open && 'hidden')}>{children}</div>
     </div>
@@ -44,7 +46,7 @@ const Address = () => {
   };
   return (
     <section className="wrapper">
-      <p className="font-body-small mb-6">
+      <p className="font-body-small md:font-body-medium mb-6">
         The following addresses will be used on the checkout page by default.
       </p>
       <InfoBlock
@@ -54,7 +56,7 @@ const Address = () => {
         title="Billing address"
         description="You have not set up this type of address yet."
       >
-        <BillingForm className="mb-10" />
+        <BillingForm className="mb-10 md:mx-auto md:max-w-lg" />
       </InfoBlock>
       <InfoBlock
         className="mb-11"

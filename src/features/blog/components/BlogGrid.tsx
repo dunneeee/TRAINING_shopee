@@ -10,7 +10,7 @@ interface BlogGridProps {
   pageSize?: number;
 }
 
-export const BlogGrid = ({ blogs, className, pageSize = 3 }: BlogGridProps) => {
+export const BlogGrid = ({ blogs, className, pageSize = 4 }: BlogGridProps) => {
   const {
     currentData: currentBlogs,
     currentPage,
@@ -30,7 +30,11 @@ export const BlogGrid = ({ blogs, className, pageSize = 3 }: BlogGridProps) => {
     <div className={clsx('overflow-hidden', className)}>
       <ul className="-m-2 flex flex-wrap">
         {currentBlogs.map((blog) => (
-          <BlogItem key={blog.id} blog={blog} className="w-full p-2" />
+          <BlogItem
+            key={blog.id}
+            blog={blog}
+            className="w-full p-2 md:w-1/2 lg:w-1/3 xl:w-1/4"
+          />
         ))}
       </ul>
       <Pagination

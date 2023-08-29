@@ -11,7 +11,7 @@ const DashBoard = () => {
   return (
     <section className="wrapper">
       <div className="">
-        <p className="font-body-small mb-3">
+        <p className="font-body-small md:font-body-medium mb-3">
           Hello {user.name} (not {user.name}?
           <button
             onClick={handleLogout}
@@ -21,7 +21,7 @@ const DashBoard = () => {
           </button>
           )
         </p>
-        <div className="font-body-small">
+        <div className="font-body-small md:font-body-medium">
           <span>From your account dashboard you can view your </span>
           <Link className="text-primary" to="/account/orders">
             recent orders

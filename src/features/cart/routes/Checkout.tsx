@@ -20,12 +20,12 @@ export const Checkout = () => {
       <h5>Checkout</h5>
       <div className="mb-9 mt-6">
         {!isAuthenticated && (
-          <p className="font-body-small">
+          <p className="font-body-small md:font-body-medium">
             Returning customer?
             <Link to="/account/login">Click here to login</Link>
           </p>
         )}
-        <p className="font-body-small">
+        <p className="font-body-small md:font-body-medium">
           Have a coupon?
           <Link to="/shopping-cart"> Click here to enter your code</Link>
         </p>

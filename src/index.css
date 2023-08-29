@@ -53,6 +53,10 @@
   h5 {
     @apply text-[16px] leading-[27px];
   }
+
+  p {
+    @apply font-body-small md:font-body-medium;
+  }
 }
 
 @layer components {

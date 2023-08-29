@@ -16,7 +16,7 @@ const ViewMore = ({
   return (
     <button
       className={clsx(
-        'font-body-small inline-flex items-center text-primary',
+        'font-body-small md:font-body-medium inline-flex items-center text-primary',
         className
       )}
       onClick={toggleViewMore}
@@ -64,7 +64,7 @@ export const Overview = ({
 
   return (
     <div className={clsx('text-darkGray', className)}>
-      <p className="font-body-small">{currentContent}</p>
+      <p className="font-body-small md:font-body-medium">{currentContent}</p>
       <ViewMore toggleViewMore={toggleViewMore} isViewMore={showMore} />
     </div>
   );
