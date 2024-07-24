@@ -53,11 +53,15 @@
   h5 {
     @apply text-[16px] leading-[27px];
   }
+
+  p {
+    @apply font-body-small md:font-body-medium;
+  }
 }
 
 @layer components {
   .wrapper {
-    @apply mx-auto max-w-xs px-4 xl:px-0;
+    @apply mx-auto max-w-7xl px-4 xl:px-0;
   }
 
   .line {

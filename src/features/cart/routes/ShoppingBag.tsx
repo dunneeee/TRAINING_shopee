@@ -15,12 +15,12 @@ export const ShoppingBag = ({ className, onBack }: ShoppingBagProps) => {
   const { cartState, cartDispatch, shoppingItems } = useShoppingItem();
 
   return (
-    <section className={clsx(className)}>
+    <div className={clsx(className)}>
       <div className="flex h-full flex-col">
         <div className="wrapper mb-6 flex w-full items-center pt-3">
           <Icons.AngleArrowRight
             onClick={onBack}
-            className="-rotate-180 cursor-pointer"
+            className="-rotate-180 cursor-pointer md:hidden"
             height={16}
             width={9}
           />
@@ -28,7 +28,7 @@ export const ShoppingBag = ({ className, onBack }: ShoppingBagProps) => {
         </div>
 
         {cartState.items.length > 0 && (
-          <p className="font-body-small wrapper w-full text-darkGray">
+          <p className="font-body-small md:font-body-medium wrapper w-full text-darkGray">
             {cartState.items.length} items
           </p>
         )}
@@ -37,7 +37,7 @@ export const ShoppingBag = ({ className, onBack }: ShoppingBagProps) => {
           <CartItemGrid cartItems={shoppingItems} cartDispatch={cartDispatch} />
         </div>
 
-        <div className="md:wrapper w-full border-t border-lightGray bg-white py-9">
+        <div className="md:wrapper w-full border-t border-lightGray bg-white py-9 md:py-2">
           <div className="wrapper">
             <p className="mb-4 flex justify-between text-black">
               <span>Subtotal ({cartState.totalItems} items) </span>
@@ -53,6 +53,6 @@ export const ShoppingBag = ({ className, onBack }: ShoppingBagProps) => {
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };

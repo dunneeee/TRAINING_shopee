@@ -7,4 +7,9 @@ export { default as useCart } from './useCart';
 export { default as useToast } from './useToast';
 export { default as useBlogPost } from './useBlogPost';
 export { default as usePage } from './usePage';
+export { default as useAuth } from './useAuth';
+export { default as useClickOutside } from './useClickOutside';
+export * from './useFormValidator';
 export * from './usePagination';
+
+export * from './useSearch';

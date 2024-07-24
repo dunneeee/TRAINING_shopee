@@ -26,7 +26,7 @@ const OrderItem = ({
       <li className={clsx('flex items-center justify-between', className)}>
         <p
           className={clsx(
-            'font-body-small',
+            'font-body-small md:font-body-medium',
             header ? 'text-black' : 'text-darkGray'
           )}
         >
@@ -34,7 +34,7 @@ const OrderItem = ({
         </p>
         <div
           className={clsx(
-            'font-body-small',
+            'font-body-small md:font-body-medium',
             header ? 'text-black' : 'text-darkGray'
           )}
         >
@@ -140,7 +140,12 @@ export const OrderBilling = ({
           />
         </li>
         <li>
-          <Button uppercase className="w-full" onClick={onPlaceOrder}>
+          <Button
+            uppercase
+            className="w-full"
+            onClick={onPlaceOrder}
+            type="submit"
+          >
             Place Order
           </Button>
         </li>

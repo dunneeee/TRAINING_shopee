@@ -27,18 +27,22 @@ export const CommentItem = ({ comment, className }: CommentItemProps) => {
       <div className="">
         <img src={user.avatar} alt="" className="h-[70px] w-[70px]" />
       </div>
-      <div className="ml-2 flex-1">
+      <div className="ml-2 flex-1 overflow-hidden">
         <div className="flex flex-wrap">
-          <p className="font-body-small mb-2 w-full">{user.name}</p>
-          <p className="font-body-small text-darkGray">
+          <p className="font-body-small md:font-body-medium mb-2 w-full">
+            {user.name}
+          </p>
+          <p className="font-body-small md:font-body-medium text-darkGray">
             {dateUtils.formatDate(createdAt)}
           </p>
-          <button className="font-body-small ml-auto flex items-center">
+          <button className="font-body-small md:font-body-medium ml-auto flex items-center">
             <Icons.Reply className="mr-1" /> Reply
           </button>
         </div>
         <div className="mt-4">
-          <p className="font-body-small mb-6 text-darkGray">{content}</p>
+          <p className="font-body-small md:font-body-medium mb-6 text-darkGray">
+            {content}
+          </p>
           {replies.length > 0 &&
             replies.map((reply) => (
               <CommentItem key={reply.id} comment={reply} />

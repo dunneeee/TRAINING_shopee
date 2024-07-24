@@ -1,5 +1,5 @@
 import { CartState, initialCartState } from '@/redux';
-import { CartAction } from '@/redux/actions';
+import { CartAction } from '@/redux';
 import { createContext } from 'react';
 
 export interface CartContextType {

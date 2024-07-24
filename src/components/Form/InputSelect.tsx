@@ -2,6 +2,11 @@ import clsx from 'clsx';
 import { FieldWrapper, FieldWrapperPassThroughProps } from './FieldWrapper';
 import { forwardRef } from 'react';
 
+const SHAPES = {
+  default: 'border-b',
+  square: 'border',
+};
+
 interface Option {
   label: React.ReactNode;
   value?: string | number | string[];
@@ -10,16 +15,28 @@ interface Option {
 type InputSelectProps = FieldWrapperPassThroughProps &
   Omit<React.SelectHTMLAttributes<HTMLSelectElement>, 'children'> & {
     options: Option[];
+    shape?: keyof typeof SHAPES;
   };
 
 export const InputSelect = forwardRef<HTMLSelectElement, InputSelectProps>(
-  ({ label, error, className, options, ...props }: InputSelectProps, ref) => {
+  (
+    {
+      label,
+      error,
+      className,
+      options,
+      shape = 'default',
+      ...props
+    }: InputSelectProps,
+    ref
+  ) => {
     return (
       <FieldWrapper label={label} error={error}>
         <select
           ref={ref}
           className={clsx(
-            'border-b border-b-gray bg-transparent py-2 outline-none',
+            'rounded border-gray bg-transparent py-2 outline-none',
+            SHAPES[shape],
             className
           )}
           {...props}

@@ -22,7 +22,7 @@ export const CommentForm = ({ className }: CommentFormProps) => {
         <li className="mb-10">
           <label
             htmlFor=""
-            className="font-body-small flex items-center text-darkGray"
+            className="font-body-small md:font-body-medium flex items-center text-darkGray"
           >
             <input
               type="checkbox"

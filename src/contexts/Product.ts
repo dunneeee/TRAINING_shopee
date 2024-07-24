@@ -1,5 +1,5 @@
 import { ProductState, initialProductState } from '@/redux';
-import { ProductAction } from '@/redux/actions';
+import { ProductAction } from '@/redux';
 import { Dispatch, createContext } from 'react';
 
 export interface ProductContextType {
