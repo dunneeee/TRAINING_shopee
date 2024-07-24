@@ -1,7 +1,7 @@
 import { Link } from '@/components/Elements';
-import { BlogPostTypes } from '@/types';
 import { dateUtils, textUtils } from '@/utils';
 import clsx from 'clsx';
+import { BlogPostTypes } from '../types';
 
 interface BlogItemProps {
   className?: string;
